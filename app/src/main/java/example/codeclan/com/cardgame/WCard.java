@@ -17,6 +17,14 @@ public class WCard {
         this.setValue();
     }
 
+    public WCardName getName() {
+        return name;
+    }
+
+    public WCardSuit getSuit() {
+        return suit;
+    }
+
     public int getValue() {
         return this.value;
     }
@@ -47,14 +55,5 @@ public class WCard {
             value = 14;
         }
     }
-
-    public WCardName getName() {
-        return name;
-    }
-
-    public WCardSuit getSuit() {
-        return suit;
-    }
-
 
 }

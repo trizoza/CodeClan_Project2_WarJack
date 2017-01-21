@@ -32,5 +32,13 @@ public class WCardTest {
         assertEquals(WCardSuit.NUT, card.getSuit());
     }
 
+    @Test
+    public void canGetDiffCard() {
+        WCard diffCard = new WCard(WCardName.ACE, WCardSuit.GREEN);
+        assertEquals(14, diffCard.getValue());
+        assertEquals(WCardName.ACE, diffCard.getName());
+        assertEquals(WCardSuit.GREEN, diffCard.getSuit());
+    }
+
 
 }
