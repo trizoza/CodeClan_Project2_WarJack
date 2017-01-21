@@ -2,6 +2,7 @@ package example.codeclan.com.cardgame;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by user on 21/01/2017.
@@ -9,10 +10,10 @@ import java.util.Collections;
 
 public class WDeck {
 
-    private ArrayList<WCard> pile;
+    private CopyOnWriteArrayList<WCard> pile;
 
     public WDeck() {
-        this.pile = new ArrayList<>();
+        this.pile = new CopyOnWriteArrayList<>();
         this.setupDeck();
     }
 
@@ -20,8 +21,8 @@ public class WDeck {
         pile.add(card);
     }
 
-    public void giveCard() {
-        pile.remove(0);
+    public WCard giveCard() {
+        return pile.remove(0);
     }
 
     public void setupDeck() {
@@ -36,5 +37,12 @@ public class WDeck {
 
     public int cardCount() {
         return pile.size();
+    }
+
+    public void distributeCards(WPlayer player1, WPlayer player2) {
+        while (cardCount() != 0) {
+            player1.addCard(giveCard());
+            player2.addCard(giveCard());
+        }
     }
 }

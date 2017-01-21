@@ -1,6 +1,7 @@
 package example.codeclan.com.cardgame;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -15,6 +16,14 @@ public class WTable {
     public WTable() {
         this.cardsOnTable = new CopyOnWriteArrayList<>();
         this.cardsOnSide = new CopyOnWriteArrayList<>();
+    }
+
+    public CopyOnWriteArrayList<WCard> getCardsOnTable() {
+        return cardsOnTable;
+    }
+
+    public CopyOnWriteArrayList<WCard> getCardsOnSide() {
+        return cardsOnSide;
     }
 
     public void addCardToTable(WCard card) {
@@ -35,17 +44,23 @@ public class WTable {
 
     public void moveCardsAside() {
         for (WCard card : cardsOnTable) {
-            WCard cardOnTable = cardsOnTable.get(0);
-            addCardAside(cardOnTable);
+            addCardAside(card);
             cardsOnTable.remove(0);
         }
     }
 
     public void giveSideCardsToPlayer(WPlayer player) {
         for (WCard card : cardsOnSide) {
-            WCard cardOnSide = cardsOnSide.get(0);
-            player.addCard(cardOnSide);
+            player.addCard(card);
             cardsOnSide.remove(0);
+        }
+    }
+
+    public void distributeCardsFromSide(WPlayer player1, WPlayer player2) {
+        Collections.shuffle(cardsOnSide);
+        while (cardCountOnSide() != 0) {
+            player1.addCard(cardsOnSide.remove(0));
+            player2.addCard(cardsOnSide.remove(0));
         }
     }
 

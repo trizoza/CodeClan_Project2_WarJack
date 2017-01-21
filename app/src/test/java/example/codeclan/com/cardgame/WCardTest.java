@@ -40,5 +40,10 @@ public class WCardTest {
         assertEquals(WCardSuit.GREEN, diffCard.getSuit());
     }
 
+    @Test
+    public void canGetString() {
+        assertEquals("SEVEN of NUT", card.toString());
+    }
+
 
 }

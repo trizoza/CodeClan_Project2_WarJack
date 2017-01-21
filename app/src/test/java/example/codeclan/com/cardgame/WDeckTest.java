@@ -11,10 +11,14 @@ import static org.junit.Assert.*;
 public class WDeckTest {
 
     WDeck deck;
+    WPlayer player1;
+    WPlayer player2;
 
     @Before
     public void before() {
         deck = new WDeck();
+        player1 = new WPlayer("Peter");
+        player2 = new WPlayer("Kamila");
     }
 
     @Test
@@ -26,6 +30,14 @@ public class WDeckTest {
     public void canGiveCard() {
         deck.giveCard();
         assertEquals(31, deck.cardCount());
+    }
+
+    @Test
+    public void canDeckDistrubuteCards() {
+        deck.distributeCards(player1, player2);
+        assertEquals(0, deck.cardCount());
+        assertEquals(16, player1.cardCount());
+        assertEquals(16, player2.cardCount());
     }
 
 }
