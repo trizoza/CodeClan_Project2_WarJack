@@ -1,6 +1,5 @@
 package example.codeclan.com.cardgame;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CopyOnWriteArrayList;
 

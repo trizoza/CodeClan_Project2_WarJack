@@ -3,14 +3,20 @@ package example.codeclan.com.cardgame;
 /**
  * Created by user on 22/01/2017.
  */
-public enum WCardName {
 
+public enum BJCardName {
+
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
     SEVEN,
     EIGHT,
     NINE,
     TEN,
-    LOWER,
-    UPPER,
+    JACK,
+    QUEEN,
     KING,
     ACE
 

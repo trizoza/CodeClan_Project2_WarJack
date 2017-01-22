@@ -50,11 +50,14 @@ public class WTable {
     }
 
     public void giveSideCardsToPlayer(WPlayer player) {
+        Collections.shuffle(cardsOnSide);
         for (WCard card : cardsOnSide) {
             player.addCard(card);
             cardsOnSide.remove(0);
         }
     }
+
+    ////// not tested //////////
 
     public void distributeCardsFromSide(WPlayer player1, WPlayer player2) {
         Collections.shuffle(cardsOnSide);

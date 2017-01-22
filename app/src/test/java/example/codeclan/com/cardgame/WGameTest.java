@@ -31,7 +31,8 @@ public class WGameTest {
 
     @Test
     public void canPlayGame() {
-        assertEquals("Player", game.play());
+        WGame newGame = new WGame();
+        assertEquals("Game over", newGame.play());
     }
 
 }
