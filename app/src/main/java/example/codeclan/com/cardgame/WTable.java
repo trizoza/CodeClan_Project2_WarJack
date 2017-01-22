@@ -1,6 +1,5 @@
 package example.codeclan.com.cardgame;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -49,7 +48,7 @@ public class WTable {
         }
     }
 
-    public void giveSideCardsToPlayer(WPlayer player) {
+    public void giveSideCardsToPlayer(Player player) {
         Collections.shuffle(cardsOnSide);
         for (WCard card : cardsOnSide) {
             player.addCard(card);
@@ -57,9 +56,8 @@ public class WTable {
         }
     }
 
-    ////// not tested //////////
-
-    public void distributeCardsFromSide(WPlayer player1, WPlayer player2) {
+    //distributes cards evenly
+    public void distributeCardsFromSide(Player player1, Player player2) {
         Collections.shuffle(cardsOnSide);
         while (cardCountOnSide() != 0) {
             player1.addCard(cardsOnSide.remove(0));

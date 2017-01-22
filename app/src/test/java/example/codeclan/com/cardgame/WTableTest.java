@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 public class WTableTest {
 
     WTable table;
-    WPlayer player;
+    Player player;
     WCard card1;
     WCard card2;
     WCard card3;
@@ -19,7 +19,7 @@ public class WTableTest {
     @Before
     public void before() {
         table = new WTable();
-        player = new WPlayer("Peter");
+        player = new Player("Peter");
         card1 = new WCard(WCardName.ACE, WCardSuit.GREEN);
         card2 = new WCard(WCardName.KING, WCardSuit.RED);
         card3 = new WCard(WCardName.UPPER, WCardSuit.NUT);
@@ -50,4 +50,14 @@ public class WTableTest {
         assertEquals(3, player.cardCount());
     }
 
+    @Test
+    public void canDistributeCardsFromSide() {
+        Player dealer = new Player("Dealer");
+        WCard card4 = new WCard(WCardName.LOWER, WCardSuit.RED);
+        table.addCardToTable(card4);
+        table.moveCardsAside();
+        table.distributeCardsFromSide(player, dealer);
+        assertEquals(2, player.cardCount());
+        assertEquals(2, dealer.cardCount());
+    }
 }

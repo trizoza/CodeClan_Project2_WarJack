@@ -38,7 +38,7 @@ public class WDeck {
         return pile.size();
     }
 
-    public void distributeCards(WPlayer player1, WPlayer player2) {
+    public void distributeCards(Player player1, Player player2) {
         while (cardCount() != 0) {
             player1.addCard(giveCard());
             player2.addCard(giveCard());

@@ -6,38 +6,44 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Created by user on 21/01/2017.
+ * Created by user on 22/01/2017.
  */
-public class WDeckTest {
+public class BJDeckTest {
 
-    WDeck deck;
+    BJDeck deck;
     Player player1;
     Player player2;
 
     @Before
     public void before() {
-        deck = new WDeck();
+        deck = new BJDeck();
         player1 = new Player("Peter");
         player2 = new Player("Kamila");
     }
 
     @Test
     public void canSetUpDeck() {
-        assertEquals(32, deck.cardCount());
+        assertEquals(52, deck.cardCount());
     }
 
     @Test
     public void canGiveCard() {
         deck.giveCard();
-        assertEquals(31, deck.cardCount());
+        assertEquals(51, deck.cardCount());
+    }
+
+    @Test
+    public void canDealCard() {
+        deck.dealCard(player1);
+        assertEquals(51, deck.cardCount());
+        assertEquals(1, player1.bjCardCount());
     }
 
     @Test
     public void canDeckDistrubuteCards() {
         deck.distributeCards(player1, player2);
-        assertEquals(0, deck.cardCount());
-        assertEquals(16, player1.cardCount());
-        assertEquals(16, player2.cardCount());
+        assertEquals(48, deck.cardCount());
+        assertEquals(2, player1.bjCardCount());
+        assertEquals(2, player2.bjCardCount());
     }
-
 }

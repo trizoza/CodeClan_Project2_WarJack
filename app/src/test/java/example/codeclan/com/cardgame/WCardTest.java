@@ -45,5 +45,4 @@ public class WCardTest {
         assertEquals("SEVEN of NUT", card.toString());
     }
 
-
 }
