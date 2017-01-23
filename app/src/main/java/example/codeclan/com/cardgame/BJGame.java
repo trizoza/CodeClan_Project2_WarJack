@@ -46,12 +46,16 @@ public class BJGame {
         }
     }
 
-    public String playerTurn() {
+    public void hit(Player player) {
+        deck.dealCard(player);
+    }
+
+    public String Turn(Player player) {
         /// TWO ACES CATCHER
-        twoAcesCatch(player1);
+        twoAcesCatch(player);
         /// ACE 11 -> 1 CATCHER
-        if (player1.getValueOfHand() > 21) {
-            for (BJCard card : player1.getBJHand()) {
+        if (player.getValueOfHand() > 21) {
+            for (BJCard card : player.getBJHand()) {
                 if (card.getValue() == 11) {
                     card.setAceValue(1);
                 }
@@ -59,124 +63,48 @@ public class BJGame {
         }
         /// PRINT OUT HAND
         String playersHand = "";
-        for (BJCard card : player1.getBJHand()) {
+        for (BJCard card : player.getBJHand()) {
             playersHand += card.toString() + "\n";
         }
-        playersHand += "\nTotal:  " + player1.getValueOfHand() + " points.\n";
+        playersHand += "\nTotal:  " + player.getValueOfHand() + " points.\n";
         return playersHand;
-
     }
 
-    public void hit() {
-        deck.dealCard(player1);
-    }
 
-    public void androidTurn() {
-
-        twoAcesCatch(player2);
-
-        String p2c1 = player2.getBJHand().get(0).toString();
-        String p2c2 = player2.getBJHand().get(1).toString();
-        String p2Hand = p2c1 + " and " + p2c2;
-        System.out.println("Android: " + p2Hand + " has value of " + player2.getValueOfHand());
-
-        while (player2.getValueOfHand() <= 17) {
-            deck.dealCard(player2);
-            if (player2.getValueOfHand() > 21) {
-                for (BJCard card : player2.getBJHand()) {
-                    if (card.getValue() == 11) {
-                        card.setAceValue(1);
-                    }
-                }
-            }
-        }
-
-    }
-
-        ////////// SET GOLDEN EYE (21 eye specialty)//////////////
-        //for (Player player : players) {
-        //    if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
-        //        player.getBJHand().get(0).setAceValue(11);
-        //        player.getBJHand().get(1).setAceValue(1);
-        //    }
-        //}
+    ////////// SET GOLDEN EYE (21 eye specialty)//////////////
+    //for (Player player : players) {
+    //    if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
+    //        player.getBJHand().get(0).setAceValue(11);
+    //        player.getBJHand().get(1).setAceValue(1);
+    //    }
+    //}
 
     //////////// EVALUATION //////////////
 
-    public void evaluation() {
-
+    public String evaluation() {
+        String report = "";
         if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
-            System.out.println(" It is a tie of " + player1.getValueOfHand() + " points.");
-            System.out.println(" You played:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Android played:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " It is a tie of " + player1.getValueOfHand() + " points.";
         }
-
         else if (player1.getValueOfHand() > 21 && player2.getValueOfHand() > 21) {
-            System.out.println(" No one won.");
-            System.out.println(" You busted " + player1.getValueOfHand() + " points:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Android busted " + player2.getValueOfHand() + " points:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " No one won. Both busted.";
         }
-
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
-            System.out.println(" You won with " + player1.getValueOfHand() + " points:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Over Android who busted with " + player2.getValueOfHand() + " points:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " You won with " + player1.getValueOfHand() + " points over Android which busted with " + player2.getValueOfHand() + " points.";
         }
-
         else if (player2.getValueOfHand() <= 21 && player1.getValueOfHand() > 21) {
-            System.out.println(" Android won with " + player2.getValueOfHand() + " points:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Over you who busted with " + player1.getValueOfHand() + " points:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " Android won with " + player2.getValueOfHand() + " points over you who busted with " + player1.getValueOfHand() + " points.";
         }
-
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
-            System.out.println(" You won with " + player1.getValueOfHand() + " points:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Over Android with " + player2.getValueOfHand() + " points:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " You won with " + player1.getValueOfHand() + " points over Android with " + player2.getValueOfHand() + " points.";
         }
-
         else if (player2.getValueOfHand() <= 21 && player2.getValueOfHand() > player1.getValueOfHand()) {
-            System.out.println(" Android won with " + player2.getValueOfHand() + " points:");
-            for (BJCard card : player2.getBJHand()) {
-                System.out.println(card.toString());
-            }
-            System.out.println(" Over you with " + player1.getValueOfHand() + " points:");
-            for (BJCard card : player1.getBJHand()) {
-                System.out.println(card.toString());
-            }
+            report = " Android won with " + player2.getValueOfHand() + " points over you with " + player1.getValueOfHand() + " points.";
         }
+        return report;
     }
 
     public String play() {
-        playerTurn();
-        androidTurn();
         evaluation();
         String over = "over";
         return over;
