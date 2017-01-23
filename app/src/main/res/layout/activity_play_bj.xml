@@ -4,12 +4,39 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
-        android:text="Let the game begin!"
+        android:id="@+id/player_turn"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         />
+
+    <Button
+        android:id="@+id/hit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onHitButtonClicked"
+        android:text="@string/hit_button"
+        android:layout_marginLeft="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_alignBaseline="@+id/stick_button"
+        android:layout_alignBottom="@+id/stick_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/stick_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onStickButtonClicked"
+        android:text="@string/stick_button"
+        android:layout_marginRight="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="165dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>

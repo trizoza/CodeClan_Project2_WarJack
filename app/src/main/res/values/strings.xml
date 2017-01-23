@@ -8,4 +8,6 @@
     <string name="war_statistics">See statistics</string>
     <string name="go_back">Go back</string>
     <string name="play">Play</string>
+    <string name="stick_button">Stick</string>
+    <string name="hit_button">Hit</string>
 </resources>

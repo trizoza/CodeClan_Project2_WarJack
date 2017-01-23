@@ -46,18 +46,30 @@ public class BJGame {
         }
     }
 
-    public void playerTurn() {
-
+    public String playerTurn() {
+        /// TWO ACES CATCHER
         twoAcesCatch(player1);
-
-        String p1c1 = player1.getBJHand().get(0).toString();
-        String p1c2 = player1.getBJHand().get(1).toString();
-        String p1Hand = p1c1 + " and " + p1c2;
-        System.out.println("You: " + p1Hand + " has value of " + player1.getValueOfHand());
+        /// ACE 11 -> 1 CATCHER
+        if (player1.getValueOfHand() > 21) {
+            for (BJCard card : player1.getBJHand()) {
+                if (card.getValue() == 11) {
+                    card.setAceValue(1);
+                }
+            }
+        }
+        /// PRINT OUT HAND
+        String playersHand = "";
+        for (BJCard card : player1.getBJHand()) {
+            playersHand += card.toString() + "\n";
+        }
+        playersHand += "\nTotal:  " + player1.getValueOfHand() + " points.\n";
+        return playersHand;
 
     }
 
-
+    public void hit() {
+        deck.dealCard(player1);
+    }
 
     public void androidTurn() {
 
