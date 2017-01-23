@@ -46,6 +46,10 @@ public class BJGame {
         String p1Hand = p1c1 + " and " + p1c2;
         System.out.println("You: " + p1Hand + " has value of " + player1.getValueOfHand());
 
+        //// HERE COMES PETER
+
+        ///// LATER ON BREAK THIS GAME METHOD INTO
+
         String p2c1 = player2.getBJHand().get(0).toString();
         String p2c2 = player2.getBJHand().get(1).toString();
         String p2Hand = p2c1 + " and " + p2c2;
@@ -84,6 +88,7 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+
         else if (player1.getValueOfHand() > 21 && player2.getValueOfHand() > 21) {
             System.out.println(" No one won.");
             System.out.println(" You busted " + player1.getValueOfHand() + " points:");
@@ -95,6 +100,7 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
             System.out.println(" You won with " + player1.getValueOfHand() + " points:");
             for (BJCard card : player1.getBJHand()) {
@@ -105,6 +111,7 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+
         else if (player2.getValueOfHand() <= 21 && player1.getValueOfHand() > 21) {
             System.out.println(" Android won with " + player2.getValueOfHand() + " points:");
             for (BJCard card : player2.getBJHand()) {
@@ -115,6 +122,7 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
             System.out.println(" You won with " + player1.getValueOfHand() + " points:");
             for (BJCard card : player1.getBJHand()) {
@@ -125,6 +133,7 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+
         else if (player2.getValueOfHand() <= 21 && player2.getValueOfHand() > player1.getValueOfHand()) {
             System.out.println(" Android won with " + player2.getValueOfHand() + " points:");
             for (BJCard card : player2.getBJHand()) {
