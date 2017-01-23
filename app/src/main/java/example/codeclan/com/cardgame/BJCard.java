@@ -71,6 +71,10 @@ public class BJCard {
         }
     }
 
+    public void setAceValue(int num) {
+        this.value = num;
+    }
+
     @Override
     public String toString() {
         return name + " of " + suit;

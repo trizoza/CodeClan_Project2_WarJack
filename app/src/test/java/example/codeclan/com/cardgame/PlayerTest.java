@@ -52,4 +52,21 @@ public class PlayerTest {
         assertEquals(0, player.bjCardCount());
     }
 
+    @Test
+    public void canGetBJHand() {
+        player.addBJCard(bjCard);
+        assertEquals(10, player.getBJHand().get(0).getValue());
+    }
+
+    @Test
+    public void canGetValueOfEmptyHand() {
+        assertEquals(0, player.getValueOfHand());
+    }
+
+    @Test
+    public void canGetValueOfHand() {
+        player.addBJCard(bjCard);
+        assertEquals(10, player.getValueOfHand());
+    }
+
 }

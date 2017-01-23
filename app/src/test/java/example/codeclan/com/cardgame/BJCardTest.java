@@ -45,4 +45,14 @@ public class BJCardTest {
         assertEquals("SEVEN of DIAMOND", card.toString());
     }
 
+    @Test
+    public void canSetAceValueToOne() {
+        BJCard diffCard = new BJCard(BJCardName.ACE, BJCardSuit.HEART);
+        assertEquals(11, diffCard.getValue());
+        diffCard.setAceValue(1);
+        assertEquals(1, diffCard.getValue());
+        diffCard.setAceValue(3);
+        assertEquals(3, diffCard.getValue());
+    }
+
 }

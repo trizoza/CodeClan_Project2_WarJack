@@ -46,4 +46,10 @@ public class BJDeckTest {
         assertEquals(2, player1.bjCardCount());
         assertEquals(2, player2.bjCardCount());
     }
+
+    @Test
+    public void canGetCard() {
+        BJCard card =  deck.getCard();
+        assertNotNull(card.getValue());
+    }
 }

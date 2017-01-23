@@ -24,6 +24,10 @@ public class BJDeck {
         return pile.remove(0);
     }
 
+    public BJCard getCard() {
+        return pile.get(0);
+    }
+
     public void setupDeck() {
         for (BJCardName name : BJCardName.values()) {
             for (BJCardSuit suit : BJCardSuit.values()) {
