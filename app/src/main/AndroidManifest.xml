@@ -22,10 +22,24 @@
             android:name=".WActivity"
             android:label="@string/w_activity_title"
             android:parentActivityName=".MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".WPlayActivity"
+            android:label="@string/w_activity_title"
+            android:parentActivityName=".MainActivity">
+
         </activity>
 
         <activity
             android:name=".BJActivity"
+            android:label="@string/bj_activity_title"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity
+            android:name=".BJPlayActivity"
             android:label="@string/bj_activity_title"
             android:parentActivityName=".MainActivity">
         </activity>

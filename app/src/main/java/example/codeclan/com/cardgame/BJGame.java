@@ -57,6 +57,8 @@ public class BJGame {
 
     }
 
+
+
     public void androidTurn() {
 
         twoAcesCatch(player2);

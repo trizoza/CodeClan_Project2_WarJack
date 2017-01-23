@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">WarJack</string>
-    <string name="war_choice">Play War</string>
-    <string name="black_jack_choice">Play Black Jack</string>
+    <string name="war_choice">War Game</string>
+    <string name="black_jack_choice">Black Jack</string>
     <string name="main_screen_name">WarJack</string>
     <string name="w_activity_title">War</string>
     <string name="bj_activity_title">Black Jack</string>
+    <string name="war_statistics">See statistics</string>
+    <string name="go_back">Go back</string>
+    <string name="play">Play</string>
 </resources>

@@ -97,6 +97,7 @@ public class WGame {
             /// AFTER SINGLE TURN AT THE BEGINNING OF WHILE LOOP
             if (player1.cardCount() >= 3 && player2.cardCount() >= 3
                     && table.getCardsOnTable().get(0).getValue() == table.getCardsOnTable().get(1).getValue()) {
+
                 table.moveCardsAside();
                 trippleCard();
                 System.out.println("A");
