@@ -11,7 +11,8 @@
         android:onClick="onWarButtonClicked"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp" />
+        android:layout_marginTop="125dp"
+        />
 
     <Button
         android:id="@+id/bj_button"
@@ -21,7 +22,8 @@
         android:onClick="onBlackJackButtonClicked"
         android:layout_below="@+id/w_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp" />
+        android:layout_marginTop="125dp"
+        />
 
 
 </RelativeLayout>

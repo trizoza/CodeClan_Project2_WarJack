@@ -2,4 +2,7 @@
     <string name="app_name">WarJack</string>
     <string name="war_choice">Play War</string>
     <string name="black_jack_choice">Play Black Jack</string>
+    <string name="main_screen_name">WarJack</string>
+    <string name="w_activity_title">War</string>
+    <string name="bj_activity_title">Black Jack</string>
 </resources>
