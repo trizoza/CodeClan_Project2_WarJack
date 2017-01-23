@@ -39,16 +39,27 @@ public class BJGame {
         return players;
     }
 
-    public String play() {
+    public void twoAcesCatch(Player player) {
+        if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
+            player.getBJHand().get(0).setAceValue(11);
+            player.getBJHand().get(1).setAceValue(1);
+        }
+    }
+
+    public void playerTurn() {
+
+        twoAcesCatch(player1);
 
         String p1c1 = player1.getBJHand().get(0).toString();
         String p1c2 = player1.getBJHand().get(1).toString();
         String p1Hand = p1c1 + " and " + p1c2;
         System.out.println("You: " + p1Hand + " has value of " + player1.getValueOfHand());
 
-        //// HERE COMES PETER
+    }
 
-        ///// LATER ON BREAK THIS GAME METHOD INTO
+    public void androidTurn() {
+
+        twoAcesCatch(player2);
 
         String p2c1 = player2.getBJHand().get(0).toString();
         String p2c2 = player2.getBJHand().get(1).toString();
@@ -66,16 +77,19 @@ public class BJGame {
             }
         }
 
-        //////////// EVALUATION //////////////
+    }
 
-        ////////// SET GOLDEN EYE //////////////
+        ////////// SET GOLDEN EYE (21 eye specialty)//////////////
+        //for (Player player : players) {
+        //    if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
+        //        player.getBJHand().get(0).setAceValue(11);
+        //        player.getBJHand().get(1).setAceValue(1);
+        //    }
+        //}
 
-        for (Player player : players) {
-            if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
-                player.getBJHand().get(0).setAceValue(20);
-                player.getBJHand().get(1).setAceValue(1);
-            }
-        }
+    //////////// EVALUATION //////////////
+
+    public void evaluation() {
 
         if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
             System.out.println(" It is a tie of " + player1.getValueOfHand() + " points.");
@@ -144,8 +158,13 @@ public class BJGame {
                 System.out.println(card.toString());
             }
         }
+    }
 
-        String over = "game over";
+    public String play() {
+        playerTurn();
+        androidTurn();
+        evaluation();
+        String over = "over";
         return over;
     }
 

@@ -26,7 +26,7 @@ public class BJGameTest {
 
     @Test
     public void canPlayGame() {
-        assertEquals("game over", game.play());
+        assertEquals("over", game.play());
     }
 
 }
