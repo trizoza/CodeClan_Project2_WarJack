@@ -24,9 +24,4 @@ public class BJGameTest {
         assertEquals(48, game.getDeck().cardCount());
     }
 
-    @Test
-    public void canPlayGame() {
-        assertEquals("over", game.play());
-    }
-
 }

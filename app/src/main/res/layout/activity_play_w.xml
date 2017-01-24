@@ -18,9 +18,9 @@
         android:layout_height="wrap_content"
         android:onClick="onNextButtonClicked"
         android:text="@string/next_button"
+        android:layout_marginBottom="51dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/go_back_button"
@@ -28,9 +28,22 @@
         android:layout_height="wrap_content"
         android:onClick="onGoBackButtonClicked"
         android:text="@string/go_back"
-        android:layout_marginBottom="54dp"
+        android:layout_marginBottom="45dp"
         android:layout_above="@+id/next_button"
-        android:layout_alignLeft="@+id/next_button"
-        android:layout_alignStart="@+id/next_button" />
+        android:layout_toLeftOf="@+id/next_button"
+        android:layout_toStartOf="@+id/next_button"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp" />
+
+    <Button
+        android:id="@+id/play_again_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onPlayAgainButtonClicked"
+        android:text="@string/play_again_button"
+        android:layout_alignBaseline="@+id/go_back_button"
+        android:layout_alignBottom="@+id/go_back_button"
+        android:layout_toRightOf="@+id/next_button"
+        android:layout_toEndOf="@+id/next_button" />
 
 </RelativeLayout>

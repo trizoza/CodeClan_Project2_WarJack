@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by user on 23/01/2017.
@@ -14,13 +18,47 @@ import android.widget.Button;
 public class WActivity extends AppCompatActivity {
 
     Button playButton;
+    TextView statisticsView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_w);
-        playButton = (Button)findViewById(R.id.play_button);
+        playButton = (Button) findViewById(R.id.play_button);
+
         Log.d(getClass().toString(), "onCreate called");
+
+
+        //// WAR STATISTICS ////
+        statisticsView = (TextView) findViewById(R.id.war_stats_view);
+        statisticsView.setVisibility(View.INVISIBLE);
+
+        String returnedWinners = WSavedWinners.getStoredText(this);
+        if (returnedWinners != null && !returnedWinners.isEmpty()) {
+            //// search for player wins
+            int players = 0;
+            Pattern p = Pattern.compile("player");
+            Matcher m = p.matcher(returnedWinners);
+            while (m.find()) {
+                players++;
+            }
+            //// search for android wins
+            int androids = 0;
+            Pattern q = Pattern.compile("android");
+            Matcher n = q.matcher(returnedWinners);
+            while (n.find()) {
+                androids++;
+            }
+            String longestTurn = WSavedLongestTurn.getStoredText(this);
+            String shortestTurn = WSavedShortestTurn.getStoredText(this);
+            String stats = "GAME STATISTICS\n" +
+                    "\nPlayer: " + players +
+                    "\nAndroid: " + androids +
+                    "\nLongest game: " + longestTurn +
+                    "\nShortest game: " + shortestTurn;
+            statisticsView.setText(stats);
+            statisticsView.setVisibility(View.VISIBLE);
+        }
     }
 
     public void onPlayWarButtonClicked(View button) {
@@ -29,5 +67,6 @@ public class WActivity extends AppCompatActivity {
         wIntent = new Intent(WActivity.this, WPlayActivity.class);
         startActivity(wIntent);
     }
+
 
 }

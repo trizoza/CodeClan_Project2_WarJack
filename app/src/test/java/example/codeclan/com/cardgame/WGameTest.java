@@ -30,10 +30,4 @@ public class WGameTest {
         assertEquals("Android", game.getPlayers().get(1).getName());
     }
 
-    @Test
-    public void canPlayGame() {
-        WGame newGame = new WGame();
-        assertEquals("Game over", newGame.play());
-    }
-
 }

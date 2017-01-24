@@ -3,17 +3,16 @@ package example.codeclan.com.cardgame;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import java.util.ArrayList;
-
 /**
- * Created by user on 23/01/2017.
+ * Created by user on 24/01/2017.
  */
 
-public class BJSavedStatistics {
+public class WSavedWinners {
 
-    private static final String PREF_SAVEDTEXT = "savedStats";
+    private static final String PREF_SAVEDTEXT = "savedWinners";
 
     public static void setStoredText(Context context, String text) {
+
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
                 .putString(PREF_SAVEDTEXT, text)
@@ -23,8 +22,7 @@ public class BJSavedStatistics {
     public static String getStoredText(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(PREF_SAVEDTEXT, null);
+
     }
-
-
 
 }

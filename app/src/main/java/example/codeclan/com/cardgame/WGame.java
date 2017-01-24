@@ -17,6 +17,7 @@ public class WGame {
     private WTable table;
     private String gameReport;
 
+
     public WGame() {
         this.deck = new WDeck();
         this.players = new ArrayList<>();
@@ -143,6 +144,7 @@ public class WGame {
 
     public String play() {
         /// GAME FLOW
+        turnCount += 1;
         gameReport = "";
         if (player1.cardCount() > 0 && player2.cardCount() > 0
                 && table.cardCountOnTable() == 0
@@ -188,7 +190,6 @@ public class WGame {
                         "\n\nLET HIS LITTLE VICTORY STAY FOREVER IN THE STATISTICS OF THIS DEVICE!";
             }
         }
-        turnCount += 1;
         return gameReport;
     }
 
