@@ -21,8 +21,8 @@ public class BJPlayActivity extends AppCompatActivity{
     Button stickButton;
     TextView resultText;
     Button playAgainButton;
+    Button goBackButton;
     BJGame game = new BJGame();
-    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +35,14 @@ public class BJPlayActivity extends AppCompatActivity{
         stickButton = (Button)findViewById(R.id.stick_button);
         resultText = (TextView)findViewById(R.id.result_text);
         playAgainButton = (Button)findViewById(R.id.play_again_button);
+        goBackButton = (Button)findViewById(R.id.go_back_button);
 
         hitButton.setVisibility(View.VISIBLE);
         stickButton.setVisibility(View.VISIBLE);
         androidTurn.setVisibility(View.INVISIBLE);
         resultText.setVisibility(View.INVISIBLE);
         playAgainButton.setVisibility(View.INVISIBLE);
+        goBackButton.setVisibility(View.INVISIBLE);
 
         String playersHand = game.Turn(game.getPlayers().get(0));
         String message = playersHand + "\nWant to hit or stick?";
@@ -92,6 +94,7 @@ public class BJPlayActivity extends AppCompatActivity{
             androidTurn.setVisibility(View.VISIBLE);
             resultText.setVisibility(View.VISIBLE);
             playAgainButton.setVisibility(View.VISIBLE);
+            goBackButton.setVisibility(View.VISIBLE);
         }
         Log.d(getClass().toString(), "Hit clicked");
     }
@@ -129,6 +132,7 @@ public class BJPlayActivity extends AppCompatActivity{
         androidTurn.setVisibility(View.VISIBLE);
         resultText.setVisibility(View.VISIBLE);
         playAgainButton.setVisibility(View.VISIBLE);
+        goBackButton.setVisibility(View.VISIBLE);
         Log.d(getClass().toString(), "Stick clicked");
     }
 
@@ -136,6 +140,14 @@ public class BJPlayActivity extends AppCompatActivity{
         Intent bjIntent;
         bjIntent = new Intent(BJPlayActivity.this, BJPlayActivity.class);
         startActivity(bjIntent);
+        Log.d(getClass().toString(), "Play again clicked");
+    }
+
+    public void onGoBackButtonClicked(View button) {
+        Intent bjIntent;
+        bjIntent = new Intent(BJPlayActivity.this, BJActivity.class);
+        startActivity(bjIntent);
+        Log.d(getClass().toString(), "Go back clicked");
     }
 
 }

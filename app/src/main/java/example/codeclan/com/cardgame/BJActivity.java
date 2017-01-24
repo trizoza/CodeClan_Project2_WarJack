@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Created by user on 23/01/2017.
  */
@@ -25,12 +28,41 @@ public class BJActivity extends AppCompatActivity{
         playButton = (Button)findViewById(R.id.play_button);
         Log.d(getClass().toString(), "onCreate called");
 
-
+        //// BLACK JACK STATISTICS ////
         savedStats = (TextView)findViewById(R.id.saved_stats);
         savedStats.setVisibility(View.INVISIBLE);
         String returnedText = BJSavedStatistics.getStoredText(this);
+        //// search for player wins
+        int players = 0;
+        Pattern p = Pattern.compile("player");
+        Matcher m = p.matcher( returnedText );
+        while (m.find()) {
+            players++;
+        }
+        //// search for android wins
+        int androids = 0;
+        Pattern q = Pattern.compile("android");
+        Matcher n = q.matcher( returnedText );
+        while (n.find()) {
+            androids++;
+        }
+        //// search for ties
+        int ties = 0;
+        Pattern r = Pattern.compile("tie");
+        Matcher o = r.matcher( returnedText );
+        while (o.find()) {
+            ties++;
+        }
+        //// search for both busted
+        int busts = 0;
+        Pattern s = Pattern.compile("bust");
+        Matcher t = s.matcher( returnedText );
+        while (t.find()) {
+            busts++;
+        }
         if (returnedText != null && !returnedText.isEmpty()) {
-            savedStats.setText(returnedText);
+            String stats = "Player: " + players + "\nAndroid: " + androids + "\nTie: " + ties + "\nDouble-bust: " + busts;
+            savedStats.setText(stats);
             savedStats.setVisibility(View.VISIBLE);
         }
     }
