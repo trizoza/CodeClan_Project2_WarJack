@@ -3,6 +3,7 @@ package example.codeclan.com.cardgame;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.widget.TextView;
  * Created by user on 23/01/2017.
  */
 
-public class BJPlayActivity extends AppCompatActivity{
+public class BJPlayActivity extends AppCompatActivity implements View.OnClickListener{
 
     TextView playerTurn;
     TextView androidTurn;
@@ -23,11 +24,14 @@ public class BJPlayActivity extends AppCompatActivity{
     Button playAgainButton;
     Button goBackButton;
     BJGame game = new BJGame();
+    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_bj);
+
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         playerTurn = (TextView)findViewById(R.id.player_turn);
         androidTurn = (TextView)findViewById(R.id.android_turn);
@@ -43,6 +47,8 @@ public class BJPlayActivity extends AppCompatActivity{
         resultText.setVisibility(View.INVISIBLE);
         playAgainButton.setVisibility(View.INVISIBLE);
         goBackButton.setVisibility(View.INVISIBLE);
+
+        hitButton.setOnClickListener(this);
 
         String playersHand = game.Turn(game.getPlayers().get(0));
         String message = playersHand + "\nWant to hit or stick?";
@@ -135,4 +141,13 @@ public class BJPlayActivity extends AppCompatActivity{
         Log.d(getClass().toString(), "Go back clicked");
     }
 
+    /// VIBRATE
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()) {
+            case R.id.hit_button:
+                vibrator.vibrate(100);
+                onHitButtonClicked(hitButton);
+        }
+    }
 }
