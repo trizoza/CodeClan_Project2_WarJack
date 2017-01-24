@@ -12,4 +12,6 @@
     <string name="hit_button">Hit</string>
     <string name="play_again_button">Play again</string>
     <string name="reset_stats">Reset statistics</string>
+    <string name="next_button">Next</string>
+    <string name="game_turn"></string>
 </resources>

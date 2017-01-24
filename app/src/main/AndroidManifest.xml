@@ -30,7 +30,7 @@
         <activity
             android:name=".WPlayActivity"
             android:label="@string/w_activity_title"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".WActivity">
 
         </activity>
 
@@ -43,7 +43,7 @@
         <activity
             android:name=".BJPlayActivity"
             android:label="@string/bj_activity_title"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".BJActivity">
         </activity>
 
     </application>

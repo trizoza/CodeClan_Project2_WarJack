@@ -23,7 +23,7 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
     TextView resultText;
     Button playAgainButton;
     Button goBackButton;
-    BJGame game = new BJGame();
+    BJGame game;
     Vibrator vibrator;
 
     @Override
@@ -50,6 +50,8 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
 
         hitButton.setOnClickListener(this);
 
+        /// BJ GAME BEGINS
+        game = new BJGame();
         String playersHand = game.Turn(game.getPlayers().get(0));
         String message = playersHand + "\nWant to hit or stick?";
         playerTurn.setText(message);
