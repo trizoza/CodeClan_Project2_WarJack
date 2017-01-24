@@ -62,22 +62,31 @@ public class WGame {
 
     public void setGameReport(Player player, int num) {
         String playedCard = table.getCardsOnTable().get(num).toString();
-        String playedValue = String.valueOf(table.getCardsOnTable().get(num).getValue());
         String handCount = String.valueOf(player.cardCount());
-        gameReport += player.getName() + " played:\n" + playedCard + "\nValue: " + playedValue + " points. \nRemaining "+ handCount +" cards.\n";
+        gameReport += player.getName() + " played:\n" + playedCard + "\nRemaining "+ handCount +" cards.\n\n";
     }
 
     ////// not tested //////////
     public void evaluateCards(int first, int second) {
+
         if (table.getCardsOnTable().get(first).getValue() > table.getCardsOnTable().get(second).getValue()) {
+            String winningCard = String.valueOf(table.getCardsOnTable().get(first).getName());
+            String loosingCard = String.valueOf(table.getCardsOnTable().get(second).getName());
+            gameReport += "\n\n" + winningCard + " trumps " + loosingCard + "\nYou take the cards!";
             higherCard(player1);
-            gameReport += "\n\nYou take the cards!";
-        } else if (table.getCardsOnTable().get(first).getValue() < table.getCardsOnTable().get(second).getValue()) {
+        }
+
+        else if (table.getCardsOnTable().get(first).getValue() < table.getCardsOnTable().get(second).getValue()) {
+            String winningCard = String.valueOf(table.getCardsOnTable().get(second).getName());
+            String loosingCard = String.valueOf(table.getCardsOnTable().get(first).getName());
+            gameReport += "\n\n" + winningCard + " trumps " + loosingCard + "\nAndroid takes the cards!";
             higherCard(player2);
-            gameReport += "\n\nAndroid takes the cards!";
-        } else {
+        }
+
+        else {
+            String bothCard = String.valueOf(table.getCardsOnTable().get(0).getName());
+            gameReport += "\n\nTwo " + bothCard + "s. \nDraw!";
             table.moveCardsAside();
-            gameReport += "\n\nDraw!";
         }
     }
 
@@ -102,7 +111,7 @@ public class WGame {
         setGameReport(player2, 2);
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 3);
-        evaluateCards(0,1);
+        evaluateCards(1,3);
     }
 
     ////// not tested //////////
@@ -168,13 +177,15 @@ public class WGame {
             else if (player1.cardCount() > player2.cardCount()) {
                 table.giveSideCardsToPlayer(player1);
                 String turns = String.valueOf(turnCount);
-                gameReport += "PLAYER WON ALL 32 CARDS ON " + turns + " TURNS!";
+                gameReport += "YOU WON ALL 32 CARDS IN " + turns + " TURNS!" +
+                        "\n\nLET YOUR LITTLE VICTORY STAY FOREVER IN THE STATISTICS OF THIS DEVICE!";
             }
             /// ANDROID WON
             else {
                 table.giveSideCardsToPlayer(player2);
                 String turns = String.valueOf(turnCount);
-                gameReport += "ANDROID WON ALL 32 CARDS ON " + turns + " TURNS!";
+                gameReport += "ANDROID WON ALL 32 CARDS IN " + turns + " TURNS!" +
+                        "\n\nLET HIS LITTLE VICTORY STAY FOREVER IN THE STATISTICS OF THIS DEVICE!";
             }
         }
         turnCount += 1;
