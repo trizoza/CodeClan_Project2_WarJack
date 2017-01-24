@@ -1,5 +1,7 @@
 package example.codeclan.com.cardgame;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,7 +20,9 @@ public class BJPlayActivity extends AppCompatActivity{
     Button hitButton;
     Button stickButton;
     TextView resultText;
+    Button playAgainButton;
     BJGame game = new BJGame();
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +34,13 @@ public class BJPlayActivity extends AppCompatActivity{
         hitButton = (Button)findViewById(R.id.hit_button);
         stickButton = (Button)findViewById(R.id.stick_button);
         resultText = (TextView)findViewById(R.id.result_text);
+        playAgainButton = (Button)findViewById(R.id.play_again_button);
 
         hitButton.setVisibility(View.VISIBLE);
         stickButton.setVisibility(View.VISIBLE);
         androidTurn.setVisibility(View.INVISIBLE);
         resultText.setVisibility(View.INVISIBLE);
+        playAgainButton.setVisibility(View.INVISIBLE);
 
         String playersHand = game.Turn(game.getPlayers().get(0));
         String message = playersHand + "\nWant to hit or stick?";
@@ -70,12 +76,22 @@ public class BJPlayActivity extends AppCompatActivity{
                 String messageAndroid = "Android has busted!\n" + "\n" + androidsHand;
                 androidTurn.setText(messageAndroid);
             }
+
             /// RESULT EVALUATION
             String results = game.evaluation();
             resultText.setText(results);
 
+            //////// DEVICE STATISTICS ///////////////////////
+            String playReport = game.statsEvaluation() + " ";
+            String returnedText = BJSavedStatistics.getStoredText(this);
+            String stringToSave = returnedText + " " + playReport;
+            Context context = button.getContext();
+            BJSavedStatistics.setStoredText(context, stringToSave);
+            //////////////////////////////////////////////////
+
             androidTurn.setVisibility(View.VISIBLE);
             resultText.setVisibility(View.VISIBLE);
+            playAgainButton.setVisibility(View.VISIBLE);
         }
         Log.d(getClass().toString(), "Hit clicked");
     }
@@ -97,13 +113,29 @@ public class BJPlayActivity extends AppCompatActivity{
             String messageAndroid = "Android has busted!\n" + "\n" + androidsHand;
             androidTurn.setText(messageAndroid);
         }
+
         /// RESULT EVALUATION
         String results = game.evaluation();
         resultText.setText(results);
 
+        //////// DEVICE STATISTICS ///////////////////////
+        String playReport = game.statsEvaluation() + " ";
+        String returnedText = BJSavedStatistics.getStoredText(this);
+        String stringToSave = returnedText + " " + playReport;
+        Context context = button.getContext();
+        BJSavedStatistics.setStoredText(context, stringToSave);
+        //////////////////////////////////////////////////
+
         androidTurn.setVisibility(View.VISIBLE);
         resultText.setVisibility(View.VISIBLE);
+        playAgainButton.setVisibility(View.VISIBLE);
         Log.d(getClass().toString(), "Stick clicked");
+    }
+
+    public void onPlayAgainButtonClicked(View button) {
+        Intent bjIntent;
+        bjIntent = new Intent(BJPlayActivity.this, BJPlayActivity.class);
+        startActivity(bjIntent);
     }
 
 }

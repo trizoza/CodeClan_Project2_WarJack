@@ -70,15 +70,6 @@ public class BJGame {
         return playersHand;
     }
 
-
-    ////////// SET GOLDEN EYE (21 eye specialty)//////////////
-    //for (Player player : players) {
-    //    if (player.getBJHand().size() == 2 && player.getValueOfHand() == 22) {
-    //        player.getBJHand().get(0).setAceValue(11);
-    //        player.getBJHand().get(1).setAceValue(1);
-    //    }
-    //}
-
     //////////// EVALUATION //////////////
 
     public String evaluation() {
@@ -102,6 +93,29 @@ public class BJGame {
             report = " Android won with " + player2.getValueOfHand() + " points over you with " + player1.getValueOfHand() + " points.";
         }
         return report;
+    }
+
+    public String statsEvaluation() {
+        String stats = "";
+        if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
+            stats = "tie";
+        }
+        else if (player1.getValueOfHand() > 21 && player2.getValueOfHand() > 21) {
+            stats = "bust";
+        }
+        else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
+            stats = "player";
+        }
+        else if (player2.getValueOfHand() <= 21 && player1.getValueOfHand() > 21) {
+            stats = "android";
+        }
+        else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
+            stats = "player";
+        }
+        else if (player2.getValueOfHand() <= 21 && player2.getValueOfHand() > player1.getValueOfHand()) {
+            stats = "android";
+        }
+        return stats;
     }
 
     public String play() {
