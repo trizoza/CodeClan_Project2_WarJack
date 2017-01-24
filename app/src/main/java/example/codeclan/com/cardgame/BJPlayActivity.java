@@ -61,23 +61,8 @@ public class BJPlayActivity extends AppCompatActivity{
         else {
             String message = "You have busted!\n" + "\n" + playersHand;
             playerTurn.setText(message);
-
-            /// ANDROID TURN
             hitButton.setVisibility(View.INVISIBLE);
             stickButton.setVisibility(View.INVISIBLE);
-            String androidsHand = "";
-            androidsHand = game.Turn(game.getPlayers().get(1));
-            while (game.getPlayers().get(1).getValueOfHand() < 17) {
-                game.hit(game.getPlayers().get(1));
-                androidsHand = game.Turn(game.getPlayers().get(1));
-            }
-            if (game.getPlayers().get(1).getValueOfHand() <= 21) {
-                androidTurn.setText(androidsHand);
-            }
-            else {
-                String messageAndroid = "Android has busted!\n" + "\n" + androidsHand;
-                androidTurn.setText(messageAndroid);
-            }
 
             /// RESULT EVALUATION
             String results = game.evaluation();

@@ -77,14 +77,11 @@ public class BJGame {
         if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
             report = " It is a tie of " + player1.getValueOfHand() + " points.";
         }
-        else if (player1.getValueOfHand() > 21 && player2.getValueOfHand() > 21) {
-            report = " No one won. Both busted.";
+        else if (player1.getValueOfHand() > 21) {
+            report = " You busted. Android wins.";
         }
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
             report = " You won with " + player1.getValueOfHand() + " points over Android which busted with " + player2.getValueOfHand() + " points.";
-        }
-        else if (player2.getValueOfHand() <= 21 && player1.getValueOfHand() > 21) {
-            report = " Android won with " + player2.getValueOfHand() + " points over you who busted with " + player1.getValueOfHand() + " points.";
         }
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
             report = " You won with " + player1.getValueOfHand() + " points over Android with " + player2.getValueOfHand() + " points.";
@@ -100,14 +97,11 @@ public class BJGame {
         if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
             stats = "tie";
         }
-        else if (player1.getValueOfHand() > 21 && player2.getValueOfHand() > 21) {
-            stats = "bust";
+        else if (player1.getValueOfHand() > 21) {
+            stats = "android";
         }
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
             stats = "player";
-        }
-        else if (player2.getValueOfHand() <= 21 && player1.getValueOfHand() > 21) {
-            stats = "android";
         }
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
             stats = "player";

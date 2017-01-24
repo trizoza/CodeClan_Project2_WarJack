@@ -22,4 +22,14 @@
         android:layout_below="@+id/play_button"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:id="@+id/reset_stats_button"
+        android:text="@string/reset_stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onResetStatsButtonClicked"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp" />
+
 </RelativeLayout>
