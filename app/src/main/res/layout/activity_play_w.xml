@@ -63,4 +63,58 @@
         android:layout_toLeftOf="@+id/next_button"
         android:layout_toStartOf="@+id/next_button" />
 
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/player_card_1"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/player_card_2"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_toRightOf="@+id/player_card_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/player_card_3"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_toRightOf="@+id/player_card_2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/android_card_1"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="220dp"/>
+
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/android_card_2"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_toRightOf="@+id/android_card_1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="220dp"/>
+
+    <ImageView
+        app:srcCompat="@drawable/card_back"
+        android:id="@+id/android_card_3"
+        android:layout_height="160dp"
+        android:layout_width="100dp"
+        android:layout_toRightOf="@+id/android_card_2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="220dp" />
+
 </RelativeLayout>

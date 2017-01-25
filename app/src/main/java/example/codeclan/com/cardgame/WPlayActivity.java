@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -20,6 +21,12 @@ public class WPlayActivity extends AppCompatActivity{
     Button goBackButton;
     Button playAgainButton;
     WGame game;
+    ImageView Card01;
+    ImageView Card02;
+    ImageView Card03;
+    ImageView Card04;
+    ImageView Card05;
+    ImageView Card06;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +38,32 @@ public class WPlayActivity extends AppCompatActivity{
         nextTurnButton = (Button)findViewById(R.id.next_button);
         goBackButton = (Button)findViewById(R.id.go_back_button);
         playAgainButton = (Button)findViewById(R.id.play_again_button);
+        Card01 = (ImageView)findViewById(R.id.player_card_1);
+        Card02 = (ImageView)findViewById(R.id.player_card_2);
+        Card03 = (ImageView)findViewById(R.id.player_card_3);
+        Card04 = (ImageView)findViewById(R.id.android_card_1);
+        Card05 = (ImageView)findViewById(R.id.android_card_2);
+        Card06 = (ImageView)findViewById(R.id.android_card_3);
 
         game = new WGame();
         game.play();
         gameView.setText(game.getGameReport());
+
+        //////// CARD PICTURES /////////////////////////////////////////////////
+        String identifier01 = game.getCard01().toString().toLowerCase();
+        int imageId01 = getResources().getIdentifier(identifier01, "drawable", this.getPackageName());
+        Card01.setImageResource(imageId01);
+
+        String identifier02 = game.getCard04().toString().toLowerCase();
+        int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
+        Card04.setImageResource(imageId02);
+
+        Card02.setVisibility(View.INVISIBLE);
+        Card03.setVisibility(View.INVISIBLE);
+        Card05.setVisibility(View.INVISIBLE);
+        Card06.setVisibility(View.INVISIBLE);
+        ///////////////////////////////////////////////////////////////////////
+
         nextTurnButton.setVisibility(View.VISIBLE);
         goBackButton.setVisibility(View.INVISIBLE);
         playAgainButton.setVisibility(View.INVISIBLE);
@@ -54,6 +83,12 @@ public class WPlayActivity extends AppCompatActivity{
             nextTurnButton.setVisibility(View.INVISIBLE);
             goBackButton.setVisibility(View.VISIBLE);
             playAgainButton.setVisibility(View.VISIBLE);
+            Card01.setVisibility(View.INVISIBLE);
+            Card02.setVisibility(View.INVISIBLE);
+            Card03.setVisibility(View.INVISIBLE);
+            Card04.setVisibility(View.INVISIBLE);
+            Card05.setVisibility(View.INVISIBLE);
+            Card06.setVisibility(View.INVISIBLE);
 
             //////// WINNER STATISTICS ///////////////////////
             String winnersReport = "player";
@@ -106,6 +141,12 @@ public class WPlayActivity extends AppCompatActivity{
             nextTurnButton.setVisibility(View.INVISIBLE);
             goBackButton.setVisibility(View.VISIBLE);
             playAgainButton.setVisibility(View.VISIBLE);
+            Card01.setVisibility(View.INVISIBLE);
+            Card02.setVisibility(View.INVISIBLE);
+            Card03.setVisibility(View.INVISIBLE);
+            Card04.setVisibility(View.INVISIBLE);
+            Card05.setVisibility(View.INVISIBLE);
+            Card06.setVisibility(View.INVISIBLE);
 
             //////// WINNER STATISTICS ///////////////////////
             String winnersReport = "android";
@@ -155,6 +196,64 @@ public class WPlayActivity extends AppCompatActivity{
         /// NO ONE WON YET
         else {
             gameView.setText(game.getGameReport());
+
+
+            //////// CARD PICTURES /////////////////////////////////////////////////
+            String identifier01 = game.getCard01().toString().toLowerCase();
+            int imageId01 = getResources().getIdentifier(identifier01, "drawable", this.getPackageName());
+            Card01.setImageResource(imageId01);
+
+            String identifier04 = game.getCard04().toString().toLowerCase();
+            int imageId04 = getResources().getIdentifier(identifier04, "drawable", this.getPackageName());
+            Card04.setImageResource(imageId04);
+
+            if (game.getCard02().equals("") && game.getCard03().equals("")) {
+                Card02.setVisibility(View.INVISIBLE);
+                Card03.setVisibility(View.INVISIBLE);
+                Card05.setVisibility(View.INVISIBLE);
+                Card06.setVisibility(View.INVISIBLE);
+            }
+
+            else if (game.getCard03().equals("")) {
+                String identifier02 = game.getCard02().toString().toLowerCase();
+                int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
+                Card02.setImageResource(imageId02);
+                Card02.setVisibility(View.VISIBLE);
+
+                String identifier05 = game.getCard05().toString().toLowerCase();
+                int imageId05 = getResources().getIdentifier(identifier05, "drawable", this.getPackageName());
+                Card05.setImageResource(imageId05);
+                Card05.setVisibility(View.VISIBLE);
+            }
+
+            else {
+                String identifier02 = game.getCard02().toString().toLowerCase();
+                int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
+                Card02.setImageResource(imageId02);
+                Card02.setVisibility(View.VISIBLE);
+
+                String identifier03 = game.getCard03().toString().toLowerCase();
+                int imageId03 = getResources().getIdentifier(identifier03, "drawable", this.getPackageName());
+                Card03.setImageResource(imageId03);
+                Card03.setVisibility(View.VISIBLE);
+
+                String identifier05 = game.getCard05().toString().toLowerCase();
+                int imageId05 = getResources().getIdentifier(identifier05, "drawable", this.getPackageName());
+                Card05.setImageResource(imageId05);
+                Card05.setVisibility(View.VISIBLE);
+
+                String identifier06 = game.getCard06().toString().toLowerCase();
+                int imageId06 = getResources().getIdentifier(identifier06, "drawable", this.getPackageName());
+                Card06.setImageResource(imageId06);
+                Card06.setVisibility(View.VISIBLE);
+            }
+            ///////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
         }
         Log.d(getClass().toString(), "Next clicked");
     }

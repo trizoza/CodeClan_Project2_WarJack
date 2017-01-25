@@ -77,7 +77,7 @@ public class BJCard {
 
     @Override
     public String toString() {
-        return name + " of " + suit;
+        return name + "of" + suit;
     }
 
 }

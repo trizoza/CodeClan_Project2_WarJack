@@ -16,6 +16,12 @@ public class WGame {
     private Player player2;
     private WTable table;
     private String gameReport;
+    private String card01;
+    private String card02;
+    private String card03;
+    private String card04;
+    private String card05;
+    private String card06;
 
 
     public WGame() {
@@ -26,6 +32,12 @@ public class WGame {
         this.player2 = new Player("Android");
         this.table = new WTable();
         this.gameReport = "";
+        this.card01 = "";
+        this.card02 = "";
+        this.card03 = "";
+        this.card04 = "";
+        this.card05 = "";
+        this.card06 = "";
         setupGame();
     }
 
@@ -58,6 +70,31 @@ public class WGame {
     public String getGameReport() {
         return this.gameReport;
     }
+
+    public String getCard01() {
+        return this.card01;
+    }
+    public void setCard01(String card) { this.card01 = card; }
+    public String getCard02() {
+        return this.card02;
+    }
+    public void setCard02(String card) { this.card02 = card; }
+    public String getCard03() {
+        return this.card03;
+    }
+    public void setCard03(String card) { this.card03 = card; }
+    public String getCard04() {
+        return this.card04;
+    }
+    public void setCard04(String card) { this.card04 = card; }
+    public String getCard05() {
+        return this.card05;
+    }
+    public void setCard05(String card) { this.card05 = card; }
+    public String getCard06() {
+        return this.card06;
+    }
+    public void setCard06(String card) { this.card06 = card; }
 
     ////// not tested ///////////
 
@@ -94,42 +131,76 @@ public class WGame {
     ////// not tested //////////
 
     public void singleCard() {
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 0);
+        setCard01(table.getCardsOnTable().get(0).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 1);
+        setCard04(table.getCardsOnTable().get(1).toString());
         evaluateCards(0,1);
+
+        setCard02("");
+        setCard03("");
+        setCard05("");
+        setCard06("");
     }
 
     ////// not tested //////////
 
     public void doubleCard() {
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 0);
+        setCard01(table.getCardsOnTable().get(0).toString());
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 1);
+        setCard02(table.getCardsOnTable().get(1).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 2);
+        setCard04(table.getCardsOnTable().get(2).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 3);
+        setCard05(table.getCardsOnTable().get(3).toString());
+
         evaluateCards(1,3);
+
+        setCard03("");
+        setCard06("");
     }
 
     ////// not tested //////////
 
     public void trippleCard() {
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 0);
+        setCard01(table.getCardsOnTable().get(0).toString());
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 1);
+        setCard02(table.getCardsOnTable().get(1).toString());
+
         table.addCardToTable(player1.giveCard());
         setGameReport(player1, 2);
+        setCard03(table.getCardsOnTable().get(2).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 3);
+        setCard04(table.getCardsOnTable().get(3).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 4);
+        setCard05(table.getCardsOnTable().get(4).toString());
+
         table.addCardToTable(player2.giveCard());
         setGameReport(player2, 5);
+        setCard06(table.getCardsOnTable().get(5).toString());
+
         evaluateCards(2,5);
     }
 
