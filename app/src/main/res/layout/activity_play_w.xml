@@ -135,7 +135,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#4A2B0F"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="390dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -146,7 +146,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#4A2B0F"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="430dp"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

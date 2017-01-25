@@ -58,7 +58,9 @@ public class BJActivity extends AppCompatActivity{
             while (o.find()) {
                 ties++;
             }
-            String stats = "GAME STATISTICS\n\nPlayer: " + players + "\nAndroid: " + androids + "\nTie: " + ties;
+            String stats = "   GAME STATISTICS\n\n         Player: " + players
+                    + "\n         Android: " + androids
+                    + "\n         Tie: " + ties;
             savedStats.setText(stats);
             savedStats.setVisibility(View.VISIBLE);
             resetStatsButton.setVisibility(View.VISIBLE);
@@ -77,7 +79,7 @@ public class BJActivity extends AppCompatActivity{
         String stringToSave = " ";
         Context context = button.getContext();
         BJSavedStatistics.setStoredText(context, stringToSave);
-        String stats = "GAME STATISTICS\n\nPlayer: 0\nAndroid: 0\nTie: 0";
+        String stats = "   GAME STATISTICS\n\n         Player: 0\n         Android: 0\n         Tie: 0";
         savedStats.setText(stats);
     }
 }

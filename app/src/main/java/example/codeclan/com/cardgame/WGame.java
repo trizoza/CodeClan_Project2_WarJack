@@ -215,8 +215,8 @@ public class WGame {
         /// GAME FLOW
         turnCount += 1;
         gameReport = "";
-        playerTurn = "YOU have   " + String.valueOf(player1.cardCount()) + "   cards left.";
-        androidTurn = "ANDROID has   " + String.valueOf(player2.cardCount()) + "   cards left.";
+        playerTurn = "You:                     " + String.valueOf(player1.cardCount()) + " cards left.";
+        androidTurn ="Android:              " + String.valueOf(player2.cardCount()) + " cards left.";
 
         if (player1.cardCount() > 0 && player2.cardCount() > 0
                 && table.cardCountOnTable() == 0

@@ -51,7 +51,7 @@ public class WActivity extends AppCompatActivity {
             }
             String longestTurn = WSavedLongestTurn.getStoredText(this);
             String shortestTurn = WSavedShortestTurn.getStoredText(this);
-            String stats = "GAME STATISTICS\n" +
+            String stats = "     GAME STATISTICS\n" +
                     "\nPlayer: " + players +
                     "\nAndroid: " + androids +
                     "\nLongest game: " + longestTurn + " turns" +
