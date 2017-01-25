@@ -56,7 +56,7 @@
         android:id="@+id/player_card_1"
         android:layout_height="160dp"
         android:layout_width="100dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"/>
 
     <ImageView
@@ -83,7 +83,7 @@
         android:id="@+id/android_card_1"
         android:layout_height="160dp"
         android:layout_width="100dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="220dp"/>
 
     <ImageView

@@ -62,11 +62,7 @@ public class BJGame {
             }
         }
         /// PRINT OUT HAND
-        String playersHand = "";
-        for (BJCard card : player.getBJHand()) {
-            playersHand += card.toString() + "\n";
-        }
-        playersHand += "Total:  " + player.getValueOfHand() + " points.\n";
+        String playersHand = player.getValueOfHand() + " points.";
         return playersHand;
     }
 
@@ -83,25 +79,13 @@ public class BJGame {
             report = "You busted. Android wins.";
         }
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
-            report = "You won with "
-                    + player1.getValueOfHand()
-                    + " points over Android which busted with "
-                    + player2.getValueOfHand()
-                    + " points.";
+            report = "Android busted. You won.";
         }
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
-            report = "You won with "
-                    + player1.getValueOfHand()
-                    + " points over Android with "
-                    + player2.getValueOfHand()
-                    + " points.";
+            report = "You won";
         }
         else if (player2.getValueOfHand() <= 21 && player2.getValueOfHand() > player1.getValueOfHand()) {
-            report = "Android won with "
-                    + player2.getValueOfHand()
-                    + " points over you with "
-                    + player1.getValueOfHand()
-                    + " points.";
+            report = "Android won.";
         }
         return report;
     }

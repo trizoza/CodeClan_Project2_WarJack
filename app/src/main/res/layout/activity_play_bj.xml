@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bj_background">
@@ -7,11 +8,10 @@
     <TextView
         android:id="@+id/player_turn"
         android:text=""
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginStart="105dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="80dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -20,11 +20,10 @@
     <TextView
         android:id="@+id/android_turn"
         android:text=""
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="105dp"
-        android:layout_marginStart="105dp"
+        android:layout_width="250dp"
+        android:layout_marginLeft="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -34,16 +33,14 @@
     <TextView
         android:id="@+id/result_text"
         android:text=""
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
+        android:layout_marginTop="245dp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        android:layout_below="@+id/android_turn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp" />
+        android:layout_marginLeft="80dp"
+        />
 
     <Button
         android:id="@+id/go_back_button"
@@ -58,20 +55,181 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/stick_button"
+    <ImageView
+        android:id="@+id/player_card_1"
+        app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:onClick="onStickButtonClicked"
-        android:text="@string/stick_button"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:background="#4A2B0F"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_above="@+id/go_back_button"
-        android:layout_toRightOf="@+id/play_again_button"
-        android:layout_toEndOf="@+id/play_again_button" />
+        android:layout_height="160dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_2"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_3"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_4"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_5"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_6"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_7"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_8"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_9"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_10"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="50dp"/>
+
+    <ImageView
+        android:id="@+id/player_card_11"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="90dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_1"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="340dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_2"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="340dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_3"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="340dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_4"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="340dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_5"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="340dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_6"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_7"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_8"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_9"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_10"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="300dp"/>
+
+    <ImageView
+        android:id="@+id/android_card_11"
+        app:srcCompat="@drawable/card_back"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_marginLeft="275dp"
+        android:layout_marginTop="260dp"/>
 
     <Button
         android:id="@+id/hit_button"
@@ -82,11 +240,27 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_marginRight="9dp"
-        android:layout_marginEnd="9dp"
-        android:layout_above="@+id/go_back_button"
+        android:layout_marginBottom="25dp"
+        android:layout_alignBottom="@+id/go_back_button"
         android:layout_toLeftOf="@+id/go_back_button"
-        android:layout_toStartOf="@+id/go_back_button" />
+        android:layout_toStartOf="@+id/go_back_button"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
+
+    <Button
+        android:id="@+id/stick_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:onClick="onStickButtonClicked"
+        android:text="@string/stick_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignTop="@+id/hit_button"
+        android:layout_alignLeft="@+id/android_card_1"
+        android:layout_alignStart="@+id/android_card_1" />
 
     <Button
         android:id="@+id/play_again_button"
@@ -97,10 +271,9 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_marginBottom="22dp"
-        android:layout_above="@+id/go_back_button"
-        android:layout_alignLeft="@+id/go_back_button"
-        android:layout_alignStart="@+id/go_back_button" />
+        android:layout_below="@+id/android_card_2"
+        android:layout_toRightOf="@+id/hit_button"
+        android:layout_toEndOf="@+id/hit_button" />
 
 
 </RelativeLayout>
