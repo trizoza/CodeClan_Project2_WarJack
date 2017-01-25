@@ -42,19 +42,6 @@
         android:layout_marginLeft="80dp"
         />
 
-    <Button
-        android:id="@+id/go_back_button"
-        android:layout_width="125dp"
-        android:layout_height="40dp"
-        android:onClick="onGoBackButtonClicked"
-        android:text="@string/go_back"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:background="#4A2B0F"
-        android:layout_marginBottom="9dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <ImageView
         android:id="@+id/player_card_1"
         app:srcCompat="@drawable/card_back"
@@ -68,7 +55,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="10dp"/>
 
     <ImageView
@@ -76,7 +63,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="155dp"
         android:layout_marginTop="10dp"/>
 
     <ImageView
@@ -84,7 +71,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="225dp"
         android:layout_marginTop="10dp"/>
 
     <ImageView
@@ -92,7 +79,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="10dp"/>
 
     <ImageView
@@ -108,7 +95,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="50dp"/>
 
     <ImageView
@@ -116,7 +103,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="155dp"
         android:layout_marginTop="50dp"/>
 
     <ImageView
@@ -124,7 +111,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="225dp"
         android:layout_marginTop="50dp"/>
 
     <ImageView
@@ -132,7 +119,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="50dp"/>
 
     <ImageView
@@ -148,7 +135,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="340dp"/>
 
     <ImageView
@@ -156,7 +143,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="225dp"
         android:layout_marginTop="340dp"/>
 
     <ImageView
@@ -164,7 +151,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="145dp"
+        android:layout_marginLeft="155dp"
         android:layout_marginTop="340dp"/>
 
     <ImageView
@@ -172,7 +159,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="340dp"/>
 
     <ImageView
@@ -188,7 +175,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="300dp"/>
 
     <ImageView
@@ -196,7 +183,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="225dp"
         android:layout_marginTop="300dp"/>
 
     <ImageView
@@ -212,7 +199,7 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="80dp"
+        android:layout_marginLeft="85dp"
         android:layout_marginTop="300dp"/>
 
     <ImageView
@@ -228,24 +215,8 @@
         app:srcCompat="@drawable/card_back"
         android:layout_width="100dp"
         android:layout_height="160dp"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="295dp"
         android:layout_marginTop="260dp"/>
-
-    <Button
-        android:id="@+id/hit_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:onClick="onHitButtonClicked"
-        android:text="@string/hit_button"
-        android:textSize="20sp"
-        android:textColor="#fff"
-        android:background="#4A2B0F"
-        android:layout_marginBottom="25dp"
-        android:layout_alignBottom="@+id/go_back_button"
-        android:layout_toLeftOf="@+id/go_back_button"
-        android:layout_toStartOf="@+id/go_back_button"
-        android:layout_marginRight="13dp"
-        android:layout_marginEnd="13dp" />
 
     <Button
         android:id="@+id/stick_button"
@@ -271,9 +242,36 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_below="@+id/android_card_2"
-        android:layout_toRightOf="@+id/hit_button"
-        android:layout_toEndOf="@+id/hit_button" />
+        android:layout_marginTop="505dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/go_back_button"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:onClick="onGoBackButtonClicked"
+        android:text="@string/go_back"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_marginTop="555dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/hit_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:onClick="onHitButtonClicked"
+        android:text="@string/hit_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_alignTop="@+id/play_again_button"
+        android:layout_alignLeft="@+id/android_card_5"
+        android:layout_alignStart="@+id/android_card_5"
+        android:layout_marginLeft="9dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="24dp" />
 
 
 </RelativeLayout>
