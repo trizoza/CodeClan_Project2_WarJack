@@ -1,4 +1,4 @@
-# CodeClan_Project_2_CardGame
+# CodeClan_Project_2_WarJack
 
 CodeClan Project2: Card game Android app built in Java & Android Studio.
 
