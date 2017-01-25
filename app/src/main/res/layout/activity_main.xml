@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background">
 
     <Button
         android:id="@+id/w_button"
         android:text="@string/war_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:onClick="onWarButtonClicked"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="140dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
         />
 
     <Button
         android:id="@+id/bj_button"
         android:text="@string/black_jack_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:onClick="onBlackJackButtonClicked"
-        android:layout_below="@+id/w_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
-        />
+        android:textSize="20sp"
+        android:layout_marginBottom="118dp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

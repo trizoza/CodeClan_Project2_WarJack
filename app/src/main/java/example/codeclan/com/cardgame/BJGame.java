@@ -66,7 +66,7 @@ public class BJGame {
         for (BJCard card : player.getBJHand()) {
             playersHand += card.toString() + "\n";
         }
-        playersHand += "\nTotal:  " + player.getValueOfHand() + " points.\n";
+        playersHand += "Total:  " + player.getValueOfHand() + " points.\n";
         return playersHand;
     }
 
@@ -75,19 +75,33 @@ public class BJGame {
     public String evaluation() {
         String report = "";
         if (player1.getValueOfHand() == player2.getValueOfHand() && player1.getValueOfHand() <= 21){
-            report = " It is a tie of " + player1.getValueOfHand() + " points.";
+            report = "It is a tie of "
+                    + player1.getValueOfHand()
+                    + " points.";
         }
         else if (player1.getValueOfHand() > 21) {
-            report = " You busted. Android wins.";
+            report = "You busted. Android wins.";
         }
         else if (player1.getValueOfHand() <= 21 && player2.getValueOfHand() > 21) {
-            report = " You won with " + player1.getValueOfHand() + " points over Android which busted with " + player2.getValueOfHand() + " points.";
+            report = "You won with "
+                    + player1.getValueOfHand()
+                    + " points over Android which busted with "
+                    + player2.getValueOfHand()
+                    + " points.";
         }
         else if (player1.getValueOfHand() <= 21 && player1.getValueOfHand() > player2.getValueOfHand()) {
-            report = " You won with " + player1.getValueOfHand() + " points over Android with " + player2.getValueOfHand() + " points.";
+            report = "You won with "
+                    + player1.getValueOfHand()
+                    + " points over Android with "
+                    + player2.getValueOfHand()
+                    + " points.";
         }
         else if (player2.getValueOfHand() <= 21 && player2.getValueOfHand() > player1.getValueOfHand()) {
-            report = " Android won with " + player2.getValueOfHand() + " points over you with " + player1.getValueOfHand() + " points.";
+            report = "Android won with "
+                    + player2.getValueOfHand()
+                    + " points over you with "
+                    + player1.getValueOfHand()
+                    + " points.";
         }
         return report;
     }
@@ -110,12 +124,6 @@ public class BJGame {
             stats = "android";
         }
         return stats;
-    }
-
-    public String play() {
-        evaluation();
-        String over = "over";
-        return over;
     }
 
 }

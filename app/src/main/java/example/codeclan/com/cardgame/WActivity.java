@@ -54,8 +54,8 @@ public class WActivity extends AppCompatActivity {
             String stats = "GAME STATISTICS\n" +
                     "\nPlayer: " + players +
                     "\nAndroid: " + androids +
-                    "\nLongest game: " + longestTurn +
-                    "\nShortest game: " + shortestTurn;
+                    "\nLongest game: " + longestTurn + " turns" +
+                    "\nShortest game: " + shortestTurn + " turns";
             statisticsView.setText(stats);
             statisticsView.setVisibility(View.VISIBLE);
         }

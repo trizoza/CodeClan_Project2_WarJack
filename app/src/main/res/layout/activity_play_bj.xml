@@ -1,24 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bj_background">
 
     <TextView
         android:id="@+id/player_turn"
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="105dp"
+        android:layout_marginStart="105dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
         />
 
     <TextView
         android:id="@+id/android_turn"
         android:text=""
         android:layout_width="wrap_content"
+        android:layout_marginLeft="105dp"
+        android:layout_marginStart="105dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/player_turn"
         />
 
     <TextView
@@ -26,54 +36,68 @@
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/android_turn"
         android:layout_centerHorizontal="true"
-        />
-
-    <Button
-        android:id="@+id/hit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onHitButtonClicked"
-        android:text="@string/hit_button"
-        android:layout_marginLeft="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_alignBaseline="@+id/stick_button"
-        android:layout_alignBottom="@+id/stick_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:id="@+id/stick_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onStickButtonClicked"
-        android:text="@string/stick_button"
-        android:layout_marginRight="68dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="165dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Button
-        android:id="@+id/play_again_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onPlayAgainButtonClicked"
-        android:text="@string/play_again_button"
-        android:layout_above="@+id/go_back_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp" />
 
     <Button
         android:id="@+id/go_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
         android:onClick="onGoBackButtonClicked"
         android:text="@string/go_back"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="9dp" />
+
+    <Button
+        android:id="@+id/stick_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:onClick="onStickButtonClicked"
+        android:text="@string/stick_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_above="@+id/go_back_button"
+        android:layout_toRightOf="@+id/play_again_button"
+        android:layout_toEndOf="@+id/play_again_button"
+        android:layout_alignTop="@+id/hit_button" />
+
+    <Button
+        android:id="@+id/hit_button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:onClick="onHitButtonClicked"
+        android:text="@string/hit_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_above="@+id/go_back_button"
+        android:layout_toLeftOf="@+id/go_back_button"
+        android:layout_toStartOf="@+id/go_back_button" />
+
+    <Button
+        android:id="@+id/play_again_button"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:onClick="onPlayAgainButtonClicked"
+        android:text="@string/play_again_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_marginBottom="11dp"
+        android:layout_above="@+id/go_back_button"
+        android:layout_toRightOf="@+id/hit_button"
+        android:layout_toEndOf="@+id/hit_button" />
 
 
 </RelativeLayout>

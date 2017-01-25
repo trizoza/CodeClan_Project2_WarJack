@@ -1,49 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/w_background"
+    >
 
     <TextView
         android:id="@+id/game_view"
         android:text="@string/game_turn"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#4A2B0F"
         />
 
     <Button
         android:id="@+id/next_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:onClick="onNextButtonClicked"
         android:text="@string/next_button"
-        android:layout_marginBottom="51dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/go_back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onGoBackButtonClicked"
-        android:text="@string/go_back"
-        android:layout_marginBottom="45dp"
-        android:layout_above="@+id/next_button"
-        android:layout_toLeftOf="@+id/next_button"
-        android:layout_toStartOf="@+id/next_button"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp" />
-
-    <Button
         android:id="@+id/play_again_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
         android:onClick="onPlayAgainButtonClicked"
         android:text="@string/play_again_button"
-        android:layout_alignBaseline="@+id/go_back_button"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
         android:layout_alignBottom="@+id/go_back_button"
         android:layout_toRightOf="@+id/next_button"
-        android:layout_toEndOf="@+id/next_button" />
+        android:layout_toEndOf="@+id/next_button"
+        android:layout_alignTop="@+id/go_back_button" />
+
+    <Button
+        android:id="@+id/go_back_button"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:onClick="onGoBackButtonClicked"
+        android:text="@string/go_back"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="#4A2B0F"
+        android:layout_marginBottom="15dp"
+        android:layout_alignBottom="@+id/next_button"
+        android:layout_toLeftOf="@+id/next_button"
+        android:layout_toStartOf="@+id/next_button" />
 
 </RelativeLayout>

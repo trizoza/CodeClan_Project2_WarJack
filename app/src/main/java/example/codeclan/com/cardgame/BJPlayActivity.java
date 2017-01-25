@@ -67,7 +67,7 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
             playerTurn.setText(message);
         }
         else {
-            String message = "You have busted!\n" + "\n" + playersHand;
+            String message = "\n" + playersHand;
             playerTurn.setText(message);
             hitButton.setVisibility(View.INVISIBLE);
             stickButton.setVisibility(View.INVISIBLE);
@@ -106,7 +106,7 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
             androidTurn.setText(androidsHand);
         }
         else {
-            String messageAndroid = "Android has busted!\n" + "\n" + androidsHand;
+            String messageAndroid = "\n" + androidsHand;
             androidTurn.setText(messageAndroid);
         }
 

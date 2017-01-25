@@ -64,7 +64,7 @@ public class WGame {
     public void setGameReport(Player player, int num) {
         String playedCard = table.getCardsOnTable().get(num).toString();
         String handCount = String.valueOf(player.cardCount());
-        gameReport += player.getName() + " played:\n" + playedCard + "\nRemaining "+ handCount +" cards.\n\n";
+        gameReport += player.getName() + " : " + playedCard + "\n"+ handCount +" cards remain\n\n";
     }
 
     ////// not tested //////////
@@ -73,20 +73,20 @@ public class WGame {
         if (table.getCardsOnTable().get(first).getValue() > table.getCardsOnTable().get(second).getValue()) {
             String winningCard = String.valueOf(table.getCardsOnTable().get(first).getName());
             String loosingCard = String.valueOf(table.getCardsOnTable().get(second).getName());
-            gameReport += "\n\n" + winningCard + " trumps " + loosingCard + "\nYou take the cards!";
+            gameReport += winningCard + " trumps " + loosingCard + "\nYou take the cards!";
             higherCard(player1);
         }
 
         else if (table.getCardsOnTable().get(first).getValue() < table.getCardsOnTable().get(second).getValue()) {
             String winningCard = String.valueOf(table.getCardsOnTable().get(second).getName());
             String loosingCard = String.valueOf(table.getCardsOnTable().get(first).getName());
-            gameReport += "\n\n" + winningCard + " trumps " + loosingCard + "\nAndroid takes the cards!";
+            gameReport += winningCard + " trumps " + loosingCard + "\nAndroid takes the cards!";
             higherCard(player2);
         }
 
         else {
             String bothCard = String.valueOf(table.getCardsOnTable().get(0).getName());
-            gameReport += "\n\nTwo " + bothCard + "s. \nDraw!";
+            gameReport += "Two " + bothCard + "s. \nDraw!";
             table.moveCardsAside();
         }
     }
