@@ -22,6 +22,9 @@ public class WGame {
     private String card04;
     private String card05;
     private String card06;
+    private String turnReport;
+    private String playerTurn;
+    private String androidTurn;
 
 
     public WGame() {
@@ -38,6 +41,10 @@ public class WGame {
         this.card04 = "";
         this.card05 = "";
         this.card06 = "";
+        this.turnReport = "";
+        this.playerTurn = "";
+        this.androidTurn = "";
+
         setupGame();
     }
 
@@ -70,6 +77,15 @@ public class WGame {
     public String getGameReport() {
         return this.gameReport;
     }
+    public String getTurnReport() {
+        return this.turnReport;
+    }
+    public String getPlayerTurn() {
+        return this.playerTurn;
+    }
+    public String getAndroidTurn() {
+        return this.androidTurn;
+    }
 
     public String getCard01() {
         return this.card01;
@@ -96,34 +112,26 @@ public class WGame {
     }
     public void setCard06(String card) { this.card06 = card; }
 
-    ////// not tested ///////////
-
-    public void setGameReport(Player player, int num) {
-        String playedCard = table.getCardsOnTable().get(num).toString();
-        String handCount = String.valueOf(player.cardCount());
-        gameReport += player.getName() + " : " + playedCard + "\n"+ handCount +" cards remain\n\n";
-    }
-
     ////// not tested //////////
     public void evaluateCards(int first, int second) {
 
         if (table.getCardsOnTable().get(first).getValue() > table.getCardsOnTable().get(second).getValue()) {
             String winningCard = String.valueOf(table.getCardsOnTable().get(first).getName());
             String loosingCard = String.valueOf(table.getCardsOnTable().get(second).getName());
-            gameReport += winningCard + " trumps " + loosingCard + "\nYou take the cards!";
+            turnReport = winningCard + " trumps " + loosingCard + "\nYou take the cards!";
             higherCard(player1);
         }
 
         else if (table.getCardsOnTable().get(first).getValue() < table.getCardsOnTable().get(second).getValue()) {
             String winningCard = String.valueOf(table.getCardsOnTable().get(second).getName());
             String loosingCard = String.valueOf(table.getCardsOnTable().get(first).getName());
-            gameReport += winningCard + " trumps " + loosingCard + "\nAndroid takes the cards!";
+            turnReport = winningCard + " trumps " + loosingCard + "\nAndroid takes the cards!";
             higherCard(player2);
         }
 
         else {
             String bothCard = String.valueOf(table.getCardsOnTable().get(0).getName());
-            gameReport += "Two " + bothCard + "s. \nDraw!";
+            turnReport = "Two " + bothCard + "s. \nDraw!";
             table.moveCardsAside();
         }
     }
@@ -133,12 +141,11 @@ public class WGame {
     public void singleCard() {
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 0);
         setCard01(table.getCardsOnTable().get(0).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 1);
         setCard04(table.getCardsOnTable().get(1).toString());
+
         evaluateCards(0,1);
 
         setCard02("");
@@ -152,19 +159,15 @@ public class WGame {
     public void doubleCard() {
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 0);
         setCard01(table.getCardsOnTable().get(0).toString());
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 1);
         setCard02(table.getCardsOnTable().get(1).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 2);
         setCard04(table.getCardsOnTable().get(2).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 3);
         setCard05(table.getCardsOnTable().get(3).toString());
 
         evaluateCards(1,3);
@@ -178,30 +181,25 @@ public class WGame {
     public void trippleCard() {
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 0);
         setCard01(table.getCardsOnTable().get(0).toString());
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 1);
         setCard02(table.getCardsOnTable().get(1).toString());
 
         table.addCardToTable(player1.giveCard());
-        setGameReport(player1, 2);
         setCard03(table.getCardsOnTable().get(2).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 3);
         setCard04(table.getCardsOnTable().get(3).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 4);
         setCard05(table.getCardsOnTable().get(4).toString());
 
         table.addCardToTable(player2.giveCard());
-        setGameReport(player2, 5);
         setCard06(table.getCardsOnTable().get(5).toString());
 
         evaluateCards(2,5);
+
     }
 
     ////// not tested //////////
@@ -217,10 +215,14 @@ public class WGame {
         /// GAME FLOW
         turnCount += 1;
         gameReport = "";
+        playerTurn = "YOU have   " + String.valueOf(player1.cardCount()) + "   cards left.";
+        androidTurn = "ANDROID has   " + String.valueOf(player2.cardCount()) + "   cards left.";
+
         if (player1.cardCount() > 0 && player2.cardCount() > 0
                 && table.cardCountOnTable() == 0
                 && table.cardCountOnSide() == 0) {
             singleCard();
+
         }
 
         else if (player1.cardCount() >= 3 && player2.cardCount() >= 3
@@ -233,12 +235,14 @@ public class WGame {
                 && table.cardCountOnTable() == 0
                 && table.cardCountOnSide() >= 2) {
             doubleCard();
+
         }
 
         else if (player1.cardCount() > 0 && player2.cardCount() > 0
                 && table.cardCountOnTable() == 0
                 && table.cardCountOnSide() >= 2) {
             singleCard();
+
         }
 
         else {

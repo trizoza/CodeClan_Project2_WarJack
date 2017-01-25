@@ -27,6 +27,9 @@ public class WPlayActivity extends AppCompatActivity{
     ImageView Card04;
     ImageView Card05;
     ImageView Card06;
+    TextView turnReportView;
+    TextView playerTurnView;
+    TextView androidTurnView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +47,15 @@ public class WPlayActivity extends AppCompatActivity{
         Card04 = (ImageView)findViewById(R.id.android_card_1);
         Card05 = (ImageView)findViewById(R.id.android_card_2);
         Card06 = (ImageView)findViewById(R.id.android_card_3);
+        turnReportView = (TextView)findViewById(R.id.turn_result);
+        playerTurnView = (TextView)findViewById(R.id.player_turn_view);
+        androidTurnView = (TextView)findViewById(R.id.android_turn_view);
 
         game = new WGame();
         game.play();
-        gameView.setText(game.getGameReport());
-
+        turnReportView.setText(game.getTurnReport());
+        playerTurnView.setText(game.getPlayerTurn());
+        androidTurnView.setText(game.getAndroidTurn());
         //////// CARD PICTURES /////////////////////////////////////////////////
         String identifier01 = game.getCard01().toString().toLowerCase();
         int imageId01 = getResources().getIdentifier(identifier01, "drawable", this.getPackageName());
@@ -72,130 +79,136 @@ public class WPlayActivity extends AppCompatActivity{
     public void onNextButtonClicked(View button) {
         /// NEXT TURN IN GAME ///
         game.play();
-        /// WINNER EVALUATION ////
-        char t = game.getGameReport().charAt(0);
-        char e = game.getGameReport().charAt(2);
-        char s = game.getGameReport().charAt(8);
-        char T = game.getGameReport().charAt(9);
-        /// YOU WINNER
-        if (t == 'Y' && e == 'U' && s == 'A' && T == 'L') {
-            gameView.setText(game.getGameReport());
-            nextTurnButton.setVisibility(View.INVISIBLE);
-            goBackButton.setVisibility(View.VISIBLE);
-            playAgainButton.setVisibility(View.VISIBLE);
-            Card01.setVisibility(View.INVISIBLE);
-            Card02.setVisibility(View.INVISIBLE);
-            Card03.setVisibility(View.INVISIBLE);
-            Card04.setVisibility(View.INVISIBLE);
-            Card05.setVisibility(View.INVISIBLE);
-            Card06.setVisibility(View.INVISIBLE);
+        if (!game.getGameReport().isEmpty()) {
+            /// WINNER EVALUATION ////
+            char t = game.getGameReport().charAt(0);
+            char e = game.getGameReport().charAt(2);
+            char s = game.getGameReport().charAt(8);
+            char T = game.getGameReport().charAt(9);
+            /// YOU WINNER
+            if (t == 'Y' && e == 'U' && s == 'A' && T == 'L') {
+                gameView.setText(game.getGameReport());
+                nextTurnButton.setVisibility(View.INVISIBLE);
+                goBackButton.setVisibility(View.VISIBLE);
+                playAgainButton.setVisibility(View.VISIBLE);
+                Card01.setVisibility(View.INVISIBLE);
+                Card02.setVisibility(View.INVISIBLE);
+                Card03.setVisibility(View.INVISIBLE);
+                Card04.setVisibility(View.INVISIBLE);
+                Card05.setVisibility(View.INVISIBLE);
+                Card06.setVisibility(View.INVISIBLE);
+                turnReportView.setVisibility(View.INVISIBLE);
+                androidTurnView.setVisibility(View.INVISIBLE);
+                playerTurnView.setVisibility(View.INVISIBLE);
 
-            //////// WINNER STATISTICS ///////////////////////
-            String winnersReport = "player";
-            String returnedText = WSavedWinners.getStoredText(this);
-            String stringToSave = returnedText + " " + winnersReport;
-            Context winContext = button.getContext();
-            WSavedWinners.setStoredText(winContext, stringToSave);
-            //////////////////////////////////////////////////
+                //////// WINNER STATISTICS ///////////////////////
+                String winnersReport = "player";
+                String returnedText = WSavedWinners.getStoredText(this);
+                String stringToSave = returnedText + " " + winnersReport;
+                Context winContext = button.getContext();
+                WSavedWinners.setStoredText(winContext, stringToSave);
+                //////////////////////////////////////////////////
 
-            ////////// LONGEST TURN STATISTICS //////////////////
-            String longestTurn = WSavedLongestTurn.getStoredText(this);
-            if (longestTurn == null){
-                longestTurn = "0";
-            }
-            int lenghtOfTurn = Integer.parseInt(longestTurn);
-            if (game.getTurnCount() > lenghtOfTurn) {
-                String newLongestTurn = String.valueOf(game.getTurnCount());
-                Context longContext = button.getContext();
-                WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
-            }
-            else if (lenghtOfTurn == 0) {
-                String newLongestTurn = String.valueOf(game.getTurnCount());
-                Context longContext = button.getContext();
-                WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
-            }
-            //////////////////////////////////////////////////////
+                ////////// LONGEST TURN STATISTICS //////////////////
+                String longestTurn = WSavedLongestTurn.getStoredText(this);
+                if (longestTurn == null) {
+                    longestTurn = "0";
+                }
+                int lenghtOfTurn = Integer.parseInt(longestTurn);
+                if (game.getTurnCount() > lenghtOfTurn) {
+                    String newLongestTurn = String.valueOf(game.getTurnCount());
+                    Context longContext = button.getContext();
+                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                } else if (lenghtOfTurn == 0) {
+                    String newLongestTurn = String.valueOf(game.getTurnCount());
+                    Context longContext = button.getContext();
+                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                }
+                //////////////////////////////////////////////////////
 
-            ////////// SHORTEST TURN STATISTICS //////////////////
-            String shortestTurn = WSavedShortestTurn.getStoredText(this);
-            if (shortestTurn == null){
-                shortestTurn = "0";
-            }
-            int shortageOfTurn = Integer.parseInt(shortestTurn);
-            if (game.getTurnCount() < shortageOfTurn) {
-                String newShortestTurn = String.valueOf(game.getTurnCount());
-                Context shortContext = button.getContext();
-                WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
-            }
-            else if (shortageOfTurn == 0) {
-                String newShortestTurn = String.valueOf(game.getTurnCount());
-                Context shortContext = button.getContext();
-                WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
-            }
-            //////////////////////////////////////////////////////
+                ////////// SHORTEST TURN STATISTICS //////////////////
+                String shortestTurn = WSavedShortestTurn.getStoredText(this);
+                if (shortestTurn == null) {
+                    shortestTurn = "0";
+                }
+                int shortageOfTurn = Integer.parseInt(shortestTurn);
+                if (game.getTurnCount() < shortageOfTurn) {
+                    String newShortestTurn = String.valueOf(game.getTurnCount());
+                    Context shortContext = button.getContext();
+                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                } else if (shortageOfTurn == 0) {
+                    String newShortestTurn = String.valueOf(game.getTurnCount());
+                    Context shortContext = button.getContext();
+                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                }
+                //////////////////////////////////////////////////////
 
-        }
-        /// ANDROID WINNER
-        else if (t == 'A' && e == 'D' && s == 'W' && T == 'O') {
-            gameView.setText(game.getGameReport());
-            nextTurnButton.setVisibility(View.INVISIBLE);
-            goBackButton.setVisibility(View.VISIBLE);
-            playAgainButton.setVisibility(View.VISIBLE);
-            Card01.setVisibility(View.INVISIBLE);
-            Card02.setVisibility(View.INVISIBLE);
-            Card03.setVisibility(View.INVISIBLE);
-            Card04.setVisibility(View.INVISIBLE);
-            Card05.setVisibility(View.INVISIBLE);
-            Card06.setVisibility(View.INVISIBLE);
+            }
+            /// ANDROID WINNER
+            else if (t == 'A' && e == 'D' && s == 'W' && T == 'O') {
+                gameView.setText(game.getGameReport());
+                nextTurnButton.setVisibility(View.INVISIBLE);
+                goBackButton.setVisibility(View.VISIBLE);
+                playAgainButton.setVisibility(View.VISIBLE);
+                Card01.setVisibility(View.INVISIBLE);
+                Card02.setVisibility(View.INVISIBLE);
+                Card03.setVisibility(View.INVISIBLE);
+                Card04.setVisibility(View.INVISIBLE);
+                Card05.setVisibility(View.INVISIBLE);
+                Card06.setVisibility(View.INVISIBLE);
+                turnReportView.setVisibility(View.INVISIBLE);
+                androidTurnView.setVisibility(View.INVISIBLE);
+                playerTurnView.setVisibility(View.INVISIBLE);
 
-            //////// WINNER STATISTICS ///////////////////////
-            String winnersReport = "android";
-            String returnedText = WSavedWinners.getStoredText(this);
-            String stringToSave = returnedText + " " + winnersReport;
-            Context context = button.getContext();
-            WSavedWinners.setStoredText(context, stringToSave);
-            //////////////////////////////////////////////////
+                //////// WINNER STATISTICS ///////////////////////
+                String winnersReport = "android";
+                String returnedText = WSavedWinners.getStoredText(this);
+                String stringToSave = returnedText + " " + winnersReport;
+                Context context = button.getContext();
+                WSavedWinners.setStoredText(context, stringToSave);
+                //////////////////////////////////////////////////
 
-            ////////// LONGEST TURN STATISTICS //////////////////
-            String longestTurn = WSavedLongestTurn.getStoredText(this);
-            if (longestTurn == null){
-                longestTurn = "0";
-            }
-            int lenghtOfTurn = Integer.parseInt(longestTurn);
-            if (game.getTurnCount() > lenghtOfTurn) {
-                String newLongestTurn = String.valueOf(game.getTurnCount());
-                Context longContext = button.getContext();
-                WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
-            }
-            else if (lenghtOfTurn == 0) {
-                String newLongestTurn = String.valueOf(game.getTurnCount());
-                Context longContext = button.getContext();
-                WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
-            }
-            //////////////////////////////////////////////////////
+                ////////// LONGEST TURN STATISTICS //////////////////
+                String longestTurn = WSavedLongestTurn.getStoredText(this);
+                if (longestTurn == null) {
+                    longestTurn = "0";
+                }
+                int lenghtOfTurn = Integer.parseInt(longestTurn);
+                if (game.getTurnCount() > lenghtOfTurn) {
+                    String newLongestTurn = String.valueOf(game.getTurnCount());
+                    Context longContext = button.getContext();
+                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                } else if (lenghtOfTurn == 0) {
+                    String newLongestTurn = String.valueOf(game.getTurnCount());
+                    Context longContext = button.getContext();
+                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                }
+                //////////////////////////////////////////////////////
 
-            ////////// SHORTEST TURN STATISTICS //////////////////
-            String shortestTurn = WSavedShortestTurn.getStoredText(this);
-            if (shortestTurn == null){
-                shortestTurn = "0";
-            }
-            int shortageOfTurn = Integer.parseInt(shortestTurn);
-            if (game.getTurnCount() < shortageOfTurn) {
-                String newShortestTurn = String.valueOf(game.getTurnCount());
-                Context shortContext = button.getContext();
-                WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
-            }
-            else if (shortageOfTurn == 0) {
-                String newShortestTurn = String.valueOf(game.getTurnCount());
-                Context shortContext = button.getContext();
-                WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
-            }
-            //////////////////////////////////////////////////////
+                ////////// SHORTEST TURN STATISTICS //////////////////
+                String shortestTurn = WSavedShortestTurn.getStoredText(this);
+                if (shortestTurn == null) {
+                    shortestTurn = "0";
+                }
+                int shortageOfTurn = Integer.parseInt(shortestTurn);
+                if (game.getTurnCount() < shortageOfTurn) {
+                    String newShortestTurn = String.valueOf(game.getTurnCount());
+                    Context shortContext = button.getContext();
+                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                } else if (shortageOfTurn == 0) {
+                    String newShortestTurn = String.valueOf(game.getTurnCount());
+                    Context shortContext = button.getContext();
+                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                }
+                //////////////////////////////////////////////////////
 
+            }
         }
         /// NO ONE WON YET
         else {
-            gameView.setText(game.getGameReport());
+            turnReportView.setText(game.getTurnReport());
+            playerTurnView.setText(game.getPlayerTurn());
+            androidTurnView.setText(game.getAndroidTurn());
 
 
             //////// CARD PICTURES /////////////////////////////////////////////////
@@ -213,7 +226,6 @@ public class WPlayActivity extends AppCompatActivity{
                 Card05.setVisibility(View.INVISIBLE);
                 Card06.setVisibility(View.INVISIBLE);
             }
-
             else if (game.getCard03().equals("")) {
                 String identifier02 = game.getCard02().toString().toLowerCase();
                 int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
@@ -225,7 +237,6 @@ public class WPlayActivity extends AppCompatActivity{
                 Card05.setImageResource(imageId05);
                 Card05.setVisibility(View.VISIBLE);
             }
-
             else {
                 String identifier02 = game.getCard02().toString().toLowerCase();
                 int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
@@ -248,11 +259,6 @@ public class WPlayActivity extends AppCompatActivity{
                 Card06.setVisibility(View.VISIBLE);
             }
             ///////////////////////////////////////////////////////////////////////
-
-
-
-
-
 
         }
         Log.d(getClass().toString(), "Next clicked");
