@@ -54,9 +54,9 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
+        android:layout_marginBottom="9dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="9dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/stick_button"
@@ -67,10 +67,11 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_above="@+id/go_back_button"
         android:layout_toRightOf="@+id/play_again_button"
-        android:layout_toEndOf="@+id/play_again_button"
-        android:layout_alignTop="@+id/hit_button" />
+        android:layout_toEndOf="@+id/play_again_button" />
 
     <Button
         android:id="@+id/hit_button"
@@ -81,6 +82,8 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
+        android:layout_marginRight="9dp"
+        android:layout_marginEnd="9dp"
         android:layout_above="@+id/go_back_button"
         android:layout_toLeftOf="@+id/go_back_button"
         android:layout_toStartOf="@+id/go_back_button" />
@@ -94,10 +97,10 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_marginBottom="11dp"
+        android:layout_marginBottom="22dp"
         android:layout_above="@+id/go_back_button"
-        android:layout_toRightOf="@+id/hit_button"
-        android:layout_toEndOf="@+id/hit_button" />
+        android:layout_alignLeft="@+id/go_back_button"
+        android:layout_alignStart="@+id/go_back_button" />
 
 
 </RelativeLayout>

@@ -24,7 +24,7 @@
         android:layout_height="40dp"
         android:onClick="onNextButtonClicked"
         android:text="@string/next_button"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
@@ -40,10 +40,12 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_alignBottom="@+id/go_back_button"
+        android:layout_alignBaseline="@+id/next_button"
+        android:layout_alignBottom="@+id/next_button"
         android:layout_toRightOf="@+id/next_button"
         android:layout_toEndOf="@+id/next_button"
-        android:layout_alignTop="@+id/go_back_button" />
+        android:layout_marginLeft="9dp"
+        android:layout_marginStart="9dp" />
 
     <Button
         android:id="@+id/go_back_button"
@@ -54,7 +56,9 @@
         android:textSize="20sp"
         android:textColor="#fff"
         android:background="#4A2B0F"
-        android:layout_marginBottom="15dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_alignBaseline="@+id/next_button"
         android:layout_alignBottom="@+id/next_button"
         android:layout_toLeftOf="@+id/next_button"
         android:layout_toStartOf="@+id/next_button" />
