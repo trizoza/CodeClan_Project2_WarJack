@@ -273,6 +273,7 @@ public class WarPlayActivity extends AppCompatActivity{
 
     public void onPlayAgainButtonClicked(View button) {
         Intent wIntent;
+        finish();
         wIntent = new Intent(WarPlayActivity.this, WarPlayActivity.class);
         startActivity(wIntent);
         Log.d(getClass().toString(), "Play again clicked");
