@@ -8,15 +8,15 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 21/01/2017.
  */
-public class WDeckTest {
+public class WarDeckTest {
 
-    WDeck deck;
+    WarDeck deck;
     Player player1;
     Player player2;
 
     @Before
     public void before() {
-        deck = new WDeck();
+        deck = new WarDeck();
         player1 = new Player("Peter");
         player2 = new Player("Kamila");
     }

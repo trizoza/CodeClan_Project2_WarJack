@@ -7,31 +7,31 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Created by user on 22/01/2017.
  */
 
-public class BJDeck {
+public class BlackJackDeck {
 
-    private CopyOnWriteArrayList<BJCard> pile;
+    private CopyOnWriteArrayList<BlackJackCard> pile;
 
-    public BJDeck() {
+    public BlackJackDeck() {
         this.pile = new CopyOnWriteArrayList<>();
         this.setupDeck();
     }
 
-    public void addCard(BJCard card) {
+    public void addCard(BlackJackCard card) {
         pile.add(card);
     }
 
-    public BJCard giveCard() {
+    public BlackJackCard giveCard() {
         return pile.remove(0);
     }
 
-    public BJCard getCard() {
+    public BlackJackCard getCard() {
         return pile.get(0);
     }
 
     public void setupDeck() {
-        for (BJCardName name : BJCardName.values()) {
-            for (BJCardSuit suit : BJCardSuit.values()) {
-                BJCard card = new BJCard(name, suit);
+        for (BlackJackCardName name : BlackJackCardName.values()) {
+            for (BlackJackCardSuit suit : BlackJackCardSuit.values()) {
+                BlackJackCard card = new BlackJackCard(name, suit);
                 addCard(card);
             }
         }

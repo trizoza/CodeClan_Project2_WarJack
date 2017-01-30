@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 22/01/2017.
  */
-public class BJGameTest {
+public class BlackJackGameTest {
 
-    BJGame game;
+    BlackJackGame game;
 
     @Before
     public void before() {
-        game = new BJGame();
+        game = new BlackJackGame();
     }
 
     @Test

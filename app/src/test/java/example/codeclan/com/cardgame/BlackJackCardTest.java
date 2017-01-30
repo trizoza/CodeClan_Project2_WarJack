@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 22/01/2017.
  */
-public class BJCardTest {
+public class BlackJackCardTest {
 
-    BJCard card;
+    BlackJackCard card;
 
     @Before
     public void before() {
-        card = new BJCard(BJCardName.SEVEN, BJCardSuit.DIAMOND);
+        card = new BlackJackCard(BlackJackCardName.SEVEN, BlackJackCardSuit.DIAMOND);
     }
 
     @Test
@@ -24,20 +24,20 @@ public class BJCardTest {
 
     @Test
     public void canGetName() {
-        assertEquals(BJCardName.SEVEN, card.getName());
+        assertEquals(BlackJackCardName.SEVEN, card.getName());
     }
 
     @Test
     public void canGetSuit() {
-        assertEquals(BJCardSuit.DIAMOND, card.getSuit());
+        assertEquals(BlackJackCardSuit.DIAMOND, card.getSuit());
     }
 
     @Test
     public void canGetDiffCard() {
-        BJCard diffCard = new BJCard(BJCardName.ACE, BJCardSuit.HEART);
+        BlackJackCard diffCard = new BlackJackCard(BlackJackCardName.ACE, BlackJackCardSuit.HEART);
         assertEquals(11, diffCard.getValue());
-        assertEquals(BJCardName.ACE, diffCard.getName());
-        assertEquals(BJCardSuit.HEART, diffCard.getSuit());
+        assertEquals(BlackJackCardName.ACE, diffCard.getName());
+        assertEquals(BlackJackCardSuit.HEART, diffCard.getSuit());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class BJCardTest {
 
     @Test
     public void canSetAceValueToOne() {
-        BJCard diffCard = new BJCard(BJCardName.ACE, BJCardSuit.HEART);
+        BlackJackCard diffCard = new BlackJackCard(BlackJackCardName.ACE, BlackJackCardSuit.HEART);
         assertEquals(11, diffCard.getValue());
         diffCard.setAceValue(1);
         assertEquals(1, diffCard.getValue());

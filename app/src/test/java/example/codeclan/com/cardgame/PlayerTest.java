@@ -11,14 +11,14 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
     Player player;
-    WCard wCard;
-    BJCard bjCard;
+    WarCard wCard;
+    BlackJackCard bjCard;
 
     @Before
     public void before() {
         player = new Player("Peter");
-        wCard = new WCard(WCardName.NINE, WCardSuit.PUMPKIN);
-        bjCard = new BJCard(BJCardName.KING, BJCardSuit.CLUB);
+        wCard = new WarCard(WarCardName.NINE, WarCardSuit.PUMPKIN);
+        bjCard = new BlackJackCard(BlackJackCardName.KING, BlackJackCardSuit.CLUB);
 
     }
 

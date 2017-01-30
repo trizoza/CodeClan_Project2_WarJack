@@ -9,13 +9,13 @@ import static org.junit.Assert.*;
  * Created by user on 21/01/2017.
  */
 
-public class WGameTest {
+public class WarGameTest {
 
-    WGame game;
+    WarGame game;
 
     @Before
     public void before() {
-        game = new WGame();
+        game = new WarGame();
     }
 
     @Test

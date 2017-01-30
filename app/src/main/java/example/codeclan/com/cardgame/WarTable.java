@@ -7,29 +7,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Created by user on 21/01/2017.
  */
 
-public class WTable {
+public class WarTable {
 
-    private CopyOnWriteArrayList<WCard> cardsOnTable;
-    private CopyOnWriteArrayList<WCard> cardsOnSide;
+    private CopyOnWriteArrayList<WarCard> cardsOnTable;
+    private CopyOnWriteArrayList<WarCard> cardsOnSide;
 
-    public WTable() {
+    public WarTable() {
         this.cardsOnTable = new CopyOnWriteArrayList<>();
         this.cardsOnSide = new CopyOnWriteArrayList<>();
     }
 
-    public CopyOnWriteArrayList<WCard> getCardsOnTable() {
+    public CopyOnWriteArrayList<WarCard> getCardsOnTable() {
         return cardsOnTable;
     }
 
-    public CopyOnWriteArrayList<WCard> getCardsOnSide() {
+    public CopyOnWriteArrayList<WarCard> getCardsOnSide() {
         return cardsOnSide;
     }
 
-    public void addCardToTable(WCard card) {
+    public void addCardToTable(WarCard card) {
         cardsOnTable.add(card);
     }
 
-    public void addCardAside(WCard card) {
+    public void addCardAside(WarCard card) {
         cardsOnSide.add(card);
     }
 
@@ -42,7 +42,7 @@ public class WTable {
     }
 
     public void moveCardsAside() {
-        for (WCard card : cardsOnTable) {
+        for (WarCard card : cardsOnTable) {
             addCardAside(card);
             cardsOnTable.remove(0);
         }
@@ -50,7 +50,7 @@ public class WTable {
 
     public void giveSideCardsToPlayer(Player player) {
         Collections.shuffle(cardsOnSide);
-        for (WCard card : cardsOnSide) {
+        for (WarCard card : cardsOnSide) {
             player.addCard(card);
             cardsOnSide.remove(0);
         }

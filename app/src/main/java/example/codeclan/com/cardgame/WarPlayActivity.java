@@ -14,13 +14,13 @@ import android.widget.TextView;
  * Created by user on 23/01/2017.
  */
 
-public class WPlayActivity extends AppCompatActivity{
+public class WarPlayActivity extends AppCompatActivity{
 
     TextView gameView;
     Button nextTurnButton;
     Button goBackButton;
     Button playAgainButton;
-    WGame game;
+    WarGame game;
     ImageView Card01;
     ImageView Card02;
     ImageView Card03;
@@ -51,7 +51,7 @@ public class WPlayActivity extends AppCompatActivity{
         playerTurnView = (TextView)findViewById(R.id.player_turn_view);
         androidTurnView = (TextView)findViewById(R.id.android_turn_view);
 
-        game = new WGame();
+        game = new WarGame();
         game.play();
         turnReportView.setText(game.getTurnReport());
         playerTurnView.setText(game.getPlayerTurn());
@@ -103,14 +103,14 @@ public class WPlayActivity extends AppCompatActivity{
 
                 //////// WINNER STATISTICS ///////////////////////
                 String winnersReport = "player";
-                String returnedText = WSavedWinners.getStoredText(this);
+                String returnedText = WarSavedWinners.getStoredText(this);
                 String stringToSave = returnedText + " " + winnersReport;
                 Context winContext = button.getContext();
-                WSavedWinners.setStoredText(winContext, stringToSave);
+                WarSavedWinners.setStoredText(winContext, stringToSave);
                 //////////////////////////////////////////////////
 
                 ////////// LONGEST TURN STATISTICS //////////////////
-                String longestTurn = WSavedLongestTurn.getStoredText(this);
+                String longestTurn = WarSavedLongestTurn.getStoredText(this);
                 if (longestTurn == null) {
                     longestTurn = "0";
                 }
@@ -118,16 +118,16 @@ public class WPlayActivity extends AppCompatActivity{
                 if (game.getTurnCount() > lenghtOfTurn) {
                     String newLongestTurn = String.valueOf(game.getTurnCount());
                     Context longContext = button.getContext();
-                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                    WarSavedLongestTurn.setStoredText(longContext, newLongestTurn);
                 } else if (lenghtOfTurn == 0) {
                     String newLongestTurn = String.valueOf(game.getTurnCount());
                     Context longContext = button.getContext();
-                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                    WarSavedLongestTurn.setStoredText(longContext, newLongestTurn);
                 }
                 //////////////////////////////////////////////////////
 
                 ////////// SHORTEST TURN STATISTICS //////////////////
-                String shortestTurn = WSavedShortestTurn.getStoredText(this);
+                String shortestTurn = WarSavedShortestTurn.getStoredText(this);
                 if (shortestTurn == null) {
                     shortestTurn = "0";
                 }
@@ -135,11 +135,11 @@ public class WPlayActivity extends AppCompatActivity{
                 if (game.getTurnCount() < shortageOfTurn) {
                     String newShortestTurn = String.valueOf(game.getTurnCount());
                     Context shortContext = button.getContext();
-                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                    WarSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
                 } else if (shortageOfTurn == 0) {
                     String newShortestTurn = String.valueOf(game.getTurnCount());
                     Context shortContext = button.getContext();
-                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                    WarSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
                 }
                 //////////////////////////////////////////////////////
 
@@ -162,14 +162,14 @@ public class WPlayActivity extends AppCompatActivity{
 
                 //////// WINNER STATISTICS ///////////////////////
                 String winnersReport = "android";
-                String returnedText = WSavedWinners.getStoredText(this);
+                String returnedText = WarSavedWinners.getStoredText(this);
                 String stringToSave = returnedText + " " + winnersReport;
                 Context context = button.getContext();
-                WSavedWinners.setStoredText(context, stringToSave);
+                WarSavedWinners.setStoredText(context, stringToSave);
                 //////////////////////////////////////////////////
 
                 ////////// LONGEST TURN STATISTICS //////////////////
-                String longestTurn = WSavedLongestTurn.getStoredText(this);
+                String longestTurn = WarSavedLongestTurn.getStoredText(this);
                 if (longestTurn == null) {
                     longestTurn = "0";
                 }
@@ -177,16 +177,16 @@ public class WPlayActivity extends AppCompatActivity{
                 if (game.getTurnCount() > lenghtOfTurn) {
                     String newLongestTurn = String.valueOf(game.getTurnCount());
                     Context longContext = button.getContext();
-                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                    WarSavedLongestTurn.setStoredText(longContext, newLongestTurn);
                 } else if (lenghtOfTurn == 0) {
                     String newLongestTurn = String.valueOf(game.getTurnCount());
                     Context longContext = button.getContext();
-                    WSavedLongestTurn.setStoredText(longContext, newLongestTurn);
+                    WarSavedLongestTurn.setStoredText(longContext, newLongestTurn);
                 }
                 //////////////////////////////////////////////////////
 
                 ////////// SHORTEST TURN STATISTICS //////////////////
-                String shortestTurn = WSavedShortestTurn.getStoredText(this);
+                String shortestTurn = WarSavedShortestTurn.getStoredText(this);
                 if (shortestTurn == null) {
                     shortestTurn = "0";
                 }
@@ -194,11 +194,11 @@ public class WPlayActivity extends AppCompatActivity{
                 if (game.getTurnCount() < shortageOfTurn) {
                     String newShortestTurn = String.valueOf(game.getTurnCount());
                     Context shortContext = button.getContext();
-                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                    WarSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
                 } else if (shortageOfTurn == 0) {
                     String newShortestTurn = String.valueOf(game.getTurnCount());
                     Context shortContext = button.getContext();
-                    WSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
+                    WarSavedShortestTurn.setStoredText(shortContext, newShortestTurn);
                 }
                 //////////////////////////////////////////////////////
 
@@ -267,13 +267,13 @@ public class WPlayActivity extends AppCompatActivity{
     public void onGoBackButtonClicked(View button) {
         Log.d(getClass().toString(), "Go back clicked");
         Intent wIntent;
-        wIntent = new Intent(WPlayActivity.this, WActivity.class);
+        wIntent = new Intent(WarPlayActivity.this, WarActivity.class);
         startActivity(wIntent);
     }
 
     public void onPlayAgainButtonClicked(View button) {
         Intent wIntent;
-        wIntent = new Intent(WPlayActivity.this, WPlayActivity.class);
+        wIntent = new Intent(WarPlayActivity.this, WarPlayActivity.class);
         startActivity(wIntent);
         Log.d(getClass().toString(), "Play again clicked");
     }

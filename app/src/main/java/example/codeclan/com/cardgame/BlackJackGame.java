@@ -6,15 +6,15 @@ import java.util.ArrayList;
  * Created by user on 22/01/2017.
  */
 
-public class BJGame {
+public class BlackJackGame {
 
-    private BJDeck deck;
+    private BlackJackDeck deck;
     private ArrayList<Player> players;
     private Player player1;
     private Player player2;
 
-    public BJGame() {
-        this.deck = new BJDeck();
+    public BlackJackGame() {
+        this.deck = new BlackJackDeck();
         this.players = new ArrayList<>();
         this.player1 = new Player("Player");
         this.player2 = new Player("Android");
@@ -31,7 +31,7 @@ public class BJGame {
         return players.size();
     }
 
-    public BJDeck getDeck() {
+    public BlackJackDeck getDeck() {
         return deck;
     }
 
@@ -55,7 +55,7 @@ public class BJGame {
         twoAcesCatch(player);
         /// ACE 11 -> 1 CATCHER
         if (player.getValueOfHand() > 21) {
-            for (BJCard card : player.getBJHand()) {
+            for (BlackJackCard card : player.getBJHand()) {
                 if (card.getValue() == 11) {
                     card.setAceValue(1);
                 }

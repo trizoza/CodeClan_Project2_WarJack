@@ -4,24 +4,24 @@ package example.codeclan.com.cardgame;
  * Created by user on 22/01/2017.
  */
 
-public class BJCard {
+public class BlackJackCard {
 
-    private BJCardName name;
-    private BJCardSuit suit;
+    private BlackJackCardName name;
+    private BlackJackCardSuit suit;
     private int value;
 
-    public BJCard(BJCardName name, BJCardSuit suit) {
+    public BlackJackCard(BlackJackCardName name, BlackJackCardSuit suit) {
         this.name = name;
         this.suit = suit;
         this.value = 0;
         this.setValue();
     }
 
-    public BJCardName getName() {
+    public BlackJackCardName getName() {
         return name;
     }
 
-    public BJCardSuit getSuit() {
+    public BlackJackCardSuit getSuit() {
         return suit;
     }
 
@@ -30,43 +30,43 @@ public class BJCard {
     }
 
     private void setValue() {
-        if (this.name == BJCardName.TWO) {
+        if (this.name == BlackJackCardName.TWO) {
             value = 2;
         }
-        if (this.name == BJCardName.THREE) {
+        if (this.name == BlackJackCardName.THREE) {
             value = 3;
         }
-        if (this.name == BJCardName.FOUR) {
+        if (this.name == BlackJackCardName.FOUR) {
             value = 4;
         }
-        if (this.name == BJCardName.FIVE) {
+        if (this.name == BlackJackCardName.FIVE) {
             value = 5;
         }
-        if (this.name == BJCardName.SIX) {
+        if (this.name == BlackJackCardName.SIX) {
             value = 6;
         }
-        if (this.name == BJCardName.SEVEN) {
+        if (this.name == BlackJackCardName.SEVEN) {
             value = 7;
         }
-        if (this.name == BJCardName.EIGHT) {
+        if (this.name == BlackJackCardName.EIGHT) {
             value = 8;
         }
-        if (this.name == BJCardName.NINE) {
+        if (this.name == BlackJackCardName.NINE) {
             value = 9;
         }
-        if (this.name == BJCardName.TEN) {
+        if (this.name == BlackJackCardName.TEN) {
             value = 10;
         }
-        if (this.name == BJCardName.JACK) {
+        if (this.name == BlackJackCardName.JACK) {
             value = 10;
         }
-        if (this.name == BJCardName.QUEEN) {
+        if (this.name == BlackJackCardName.QUEEN) {
             value = 10;
         }
-        if (this.name == BJCardName.KING) {
+        if (this.name == BlackJackCardName.KING) {
             value = 10;
         }
-        if (this.name == BJCardName.ACE) {
+        if (this.name == BlackJackCardName.ACE) {
             value = 11;
         }
     }

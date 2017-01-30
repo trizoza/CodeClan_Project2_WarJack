@@ -8,15 +8,15 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 22/01/2017.
  */
-public class BJDeckTest {
+public class BlackJackDeckTest {
 
-    BJDeck deck;
+    BlackJackDeck deck;
     Player player1;
     Player player2;
 
     @Before
     public void before() {
-        deck = new BJDeck();
+        deck = new BlackJackDeck();
         player1 = new Player("Peter");
         player2 = new Player("Kamila");
     }
@@ -49,7 +49,7 @@ public class BJDeckTest {
 
     @Test
     public void canGetCard() {
-        BJCard card =  deck.getCard();
+        BlackJackCard card =  deck.getCard();
         assertNotNull(card.getValue());
     }
 }

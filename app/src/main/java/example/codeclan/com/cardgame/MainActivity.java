@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(getClass().toString(), "Play War clicked");
 
         Intent wIntent;
-        wIntent = new Intent(MainActivity.this, WActivity.class);
+        wIntent = new Intent(MainActivity.this, WarActivity.class);
 
         startActivity(wIntent);
     }
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(getClass().toString(), "Play Black Jack clicked");
 
         Intent bjIntent;
-        bjIntent = new Intent(MainActivity.this, BJActivity.class);
+        bjIntent = new Intent(MainActivity.this, BlackJackActivity.class);
 
         startActivity(bjIntent);
     }

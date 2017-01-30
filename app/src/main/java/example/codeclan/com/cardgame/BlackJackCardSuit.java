@@ -4,7 +4,7 @@ package example.codeclan.com.cardgame;
  * Created by user on 22/01/2017.
  */
 
-public enum BJCardSuit {
+public enum BlackJackCardSuit {
 
     HEART,
     SPADE,

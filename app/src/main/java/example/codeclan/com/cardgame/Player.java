@@ -1,6 +1,5 @@
 package example.codeclan.com.cardgame;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -10,8 +9,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Player {
 
     private String name;
-    private CopyOnWriteArrayList<WCard> wHand;
-    private CopyOnWriteArrayList<BJCard> bjHand;
+    private CopyOnWriteArrayList<WarCard> wHand;
+    private CopyOnWriteArrayList<BlackJackCard> bjHand;
     private int valueOfHand;
 
     public Player(String name) {
@@ -28,11 +27,11 @@ public class Player {
 
     ///////// WAR METHODS //////////////////////////////
 
-    public void addCard(WCard card) {
+    public void addCard(WarCard card) {
         wHand.add(card);
     }
 
-    public WCard giveCard() {
+    public WarCard giveCard() {
         return wHand.remove(0);
     }
 
@@ -42,11 +41,11 @@ public class Player {
 
     //////// BLACK JACK METHODS ////////////////////////
 
-    public void addBJCard(BJCard card) {
+    public void addBJCard(BlackJackCard card) {
         bjHand.add(card);
     }
 
-    public BJCard giveBJCard() {
+    public BlackJackCard giveBJCard() {
         return bjHand.remove(0);
     }
 
@@ -54,13 +53,13 @@ public class Player {
         return bjHand.size();
     }
 
-    public CopyOnWriteArrayList<BJCard> getBJHand() {
+    public CopyOnWriteArrayList<BlackJackCard> getBJHand() {
         return bjHand;
     }
 
     public int getValueOfHand() {
         valueOfHand = 0;
-        for (BJCard card : bjHand) {
+        for (BlackJackCard card : bjHand) {
             valueOfHand += card.getValue();
         }
         return valueOfHand;

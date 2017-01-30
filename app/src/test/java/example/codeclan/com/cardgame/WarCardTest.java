@@ -8,13 +8,13 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 20/01/2017.
  */
-public class WCardTest {
+public class WarCardTest {
 
-    WCard card;
+    WarCard card;
 
     @Before
     public void before() {
-        card = new WCard(WCardName.SEVEN, WCardSuit.NUT);
+        card = new WarCard(WarCardName.SEVEN, WarCardSuit.NUT);
     }
 
     @Test
@@ -24,20 +24,20 @@ public class WCardTest {
 
     @Test
     public void canGetName() {
-        assertEquals(WCardName.SEVEN, card.getName());
+        assertEquals(WarCardName.SEVEN, card.getName());
     }
 
     @Test
     public void canGetSuit() {
-        assertEquals(WCardSuit.NUT, card.getSuit());
+        assertEquals(WarCardSuit.NUT, card.getSuit());
     }
 
     @Test
     public void canGetDiffCard() {
-        WCard diffCard = new WCard(WCardName.ACE, WCardSuit.GREEN);
+        WarCard diffCard = new WarCard(WarCardName.ACE, WarCardSuit.GREEN);
         assertEquals(14, diffCard.getValue());
-        assertEquals(WCardName.ACE, diffCard.getName());
-        assertEquals(WCardSuit.GREEN, diffCard.getSuit());
+        assertEquals(WarCardName.ACE, diffCard.getName());
+        assertEquals(WarCardSuit.GREEN, diffCard.getSuit());
     }
 
     @Test

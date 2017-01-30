@@ -8,21 +8,21 @@ import static org.junit.Assert.*;
 /**
  * Created by user on 21/01/2017.
  */
-public class WTableTest {
+public class WarTableTest {
 
-    WTable table;
+    WarTable table;
     Player player;
-    WCard card1;
-    WCard card2;
-    WCard card3;
+    WarCard card1;
+    WarCard card2;
+    WarCard card3;
 
     @Before
     public void before() {
-        table = new WTable();
+        table = new WarTable();
         player = new Player("Peter");
-        card1 = new WCard(WCardName.ACE, WCardSuit.GREEN);
-        card2 = new WCard(WCardName.KING, WCardSuit.RED);
-        card3 = new WCard(WCardName.UPPER, WCardSuit.NUT);
+        card1 = new WarCard(WarCardName.ACE, WarCardSuit.GREEN);
+        card2 = new WarCard(WarCardName.KING, WarCardSuit.RED);
+        card3 = new WarCard(WarCardName.UPPER, WarCardSuit.NUT);
         table.addCardToTable(card1);
         table.addCardToTable(card2);
         table.addCardToTable(card3);
@@ -53,7 +53,7 @@ public class WTableTest {
     @Test
     public void canDistributeCardsFromSide() {
         Player dealer = new Player("Dealer");
-        WCard card4 = new WCard(WCardName.LOWER, WCardSuit.RED);
+        WarCard card4 = new WarCard(WarCardName.LOWER, WarCardSuit.RED);
         table.addCardToTable(card4);
         table.moveCardsAside();
         table.distributeCardsFromSide(player, dealer);

@@ -1,20 +1,19 @@
 package example.codeclan.com.cardgame;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  * Created by user on 21/01/2017.
  */
 
-public class WGame {
+public class WarGame {
 
-    private WDeck deck;
+    private WarDeck deck;
     private ArrayList<Player> players;
     private int turnCount;
     private Player player1;
     private Player player2;
-    private WTable table;
+    private WarTable table;
     private String gameReport;
     private String card01;
     private String card02;
@@ -27,13 +26,13 @@ public class WGame {
     private String androidTurn;
 
 
-    public WGame() {
-        this.deck = new WDeck();
+    public WarGame() {
+        this.deck = new WarDeck();
         this.players = new ArrayList<>();
         this.turnCount = 0;
         this.player1 = new Player("You");
         this.player2 = new Player("Android");
-        this.table = new WTable();
+        this.table = new WarTable();
         this.gameReport = "";
         this.card01 = "";
         this.card02 = "";
@@ -62,7 +61,7 @@ public class WGame {
         return turnCount;
     }
 
-    public WDeck getDeck() {
+    public WarDeck getDeck() {
         return deck;
     }
 
@@ -70,7 +69,7 @@ public class WGame {
         return players;
     }
 
-    public WTable getTable() {
+    public WarTable getTable() {
         return table;
     }
 
@@ -250,7 +249,7 @@ public class WGame {
                 table.distributeCardsFromSide(player1, player2);
                 gameReport += "SUPER TIE! RESHUFFLE THE PILE!";
             }
-            /// PLAYER 1 WON
+            /// PLAYER WON
             else if (player1.cardCount() > player2.cardCount()) {
                 table.giveSideCardsToPlayer(player1);
                 String turns = String.valueOf(turnCount);

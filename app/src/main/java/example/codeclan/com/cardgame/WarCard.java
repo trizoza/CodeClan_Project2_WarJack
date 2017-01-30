@@ -4,24 +4,24 @@ package example.codeclan.com.cardgame;
  * Created by user on 20/01/2017.
  */
 
-public class WCard {
+public class WarCard {
 
-    private WCardName name;
-    private WCardSuit suit;
+    private WarCardName name;
+    private WarCardSuit suit;
     private int value;
 
-    public WCard(WCardName name, WCardSuit suit) {
+    public WarCard(WarCardName name, WarCardSuit suit) {
         this.name = name;
         this.suit = suit;
         this.value = 0;
         this.setValue();
     }
 
-    public WCardName getName() {
+    public WarCardName getName() {
         return name;
     }
 
-    public WCardSuit getSuit() {
+    public WarCardSuit getSuit() {
         return suit;
     }
 
@@ -30,28 +30,28 @@ public class WCard {
     }
 
     private void setValue() {
-        if (this.name == WCardName.SEVEN) {
+        if (this.name == WarCardName.SEVEN) {
             value = 7;
         }
-        if (this.name == WCardName.EIGHT) {
+        if (this.name == WarCardName.EIGHT) {
             value = 8;
         }
-        if (this.name == WCardName.NINE) {
+        if (this.name == WarCardName.NINE) {
             value = 9;
         }
-        if (this.name == WCardName.TEN) {
+        if (this.name == WarCardName.TEN) {
             value = 10;
         }
-        if (this.name == WCardName.LOWER) {
+        if (this.name == WarCardName.LOWER) {
             value = 11;
         }
-        if (this.name == WCardName.UPPER) {
+        if (this.name == WarCardName.UPPER) {
             value = 12;
         }
-        if (this.name == WCardName.KING) {
+        if (this.name == WarCardName.KING) {
             value = 13;
         }
-        if (this.name == WCardName.ACE) {
+        if (this.name == WarCardName.ACE) {
             value = 14;
         }
     }

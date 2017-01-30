@@ -15,7 +15,7 @@ import android.widget.TextView;
  * Created by user on 23/01/2017.
  */
 
-public class BJPlayActivity extends AppCompatActivity implements View.OnClickListener{
+public class BlackJackPlayActivity extends AppCompatActivity /*implements View.OnClickListener*/{
 
     TextView playerTurn;
     TextView androidTurn;
@@ -24,7 +24,7 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
     TextView resultText;
     Button playAgainButton;
     Button goBackButton;
-    BJGame game;
+    BlackJackGame game;
     Vibrator vibrator;
     ImageView pCard01;
     ImageView pCard02;
@@ -112,10 +112,10 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
         pCard11.setVisibility(View.INVISIBLE);
 
 
-        hitButton.setOnClickListener(this);
+//        hitButton.setOnClickListener(this);
 
         /// BJ GAME BEGINS
-        game = new BJGame();
+        game = new BlackJackGame();
 
         /////// FIRST PLAYED CARDS ASSIGNMENT /////////////
         String identifier01 = game.getPlayers().get(0).getBJHand().get(0).toString().toLowerCase();
@@ -124,8 +124,11 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
         String identifier02 = game.getPlayers().get(0).getBJHand().get(1).toString().toLowerCase();
         int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
         pCard02.setImageResource(imageId02);
-        int imageId12 = getResources().getIdentifier("card_back", "drawable", this.getPackageName());
+
+        String identifier12 = game.getPlayers().get(1).getBJHand().get(0).toString().toLowerCase();
+        int imageId12 = getResources().getIdentifier(identifier12, "drawable", this.getPackageName());
         aCard01.setImageResource(imageId12);
+
         int imageId13 = getResources().getIdentifier("card_back", "drawable", this.getPackageName());
         aCard02.setImageResource(imageId13);
         ////////////////////////////////////////////////////
@@ -214,10 +217,10 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
 
             //////// DEVICE STATISTICS ///////////////////////
             String playReport = game.statsEvaluation() + " ";
-            String returnedText = BJSavedStatistics.getStoredText(this);
+            String returnedText = BlackJackSavedStatistics.getStoredText(this);
             String stringToSave = returnedText + " " + playReport;
             Context context = button.getContext();
-            BJSavedStatistics.setStoredText(context, stringToSave);
+            BlackJackSavedStatistics.setStoredText(context, stringToSave);
             //////////////////////////////////////////////////
 
             androidTurn.setVisibility(View.VISIBLE);
@@ -251,76 +254,76 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
         resultText.setText(results);
 
         /////// ANDROIDS CARD CHECK /////////////////////////////////////////
-        String identifier01 = game.getPlayers().get(1).getBJHand().get(0).toString().toLowerCase();
-        int imageId01 = getResources().getIdentifier(identifier01, "drawable", this.getPackageName());
-        aCard01.setImageResource(imageId01);
+//        String identifier12 = game.getPlayers().get(1).getBJHand().get(0).toString().toLowerCase();
+//        int imageId12 = getResources().getIdentifier(identifier12, "drawable", this.getPackageName());
+//        aCard01.setImageResource(imageId12);
 
-        String identifier02 = game.getPlayers().get(1).getBJHand().get(1).toString().toLowerCase();
-        int imageId02 = getResources().getIdentifier(identifier02, "drawable", this.getPackageName());
-        aCard02.setImageResource(imageId02);
+        String identifier13 = game.getPlayers().get(1).getBJHand().get(1).toString().toLowerCase();
+        int imageId13 = getResources().getIdentifier(identifier13, "drawable", this.getPackageName());
+        aCard02.setImageResource(imageId13);
 
         if (game.getPlayers().get(1).getBJHand().size() >= 3) {
-            String identifier03 = game.getPlayers().get(1).getBJHand().get(2).toString().toLowerCase();
-            int imageId03 = getResources().getIdentifier(identifier03, "drawable", this.getPackageName());
-            aCard03.setImageResource(imageId03);
+            String identifier14 = game.getPlayers().get(1).getBJHand().get(2).toString().toLowerCase();
+            int imageId14 = getResources().getIdentifier(identifier14, "drawable", this.getPackageName());
+            aCard03.setImageResource(imageId14);
             aCard03.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 4) {
-            String identifier04 = game.getPlayers().get(1).getBJHand().get(3).toString().toLowerCase();
-            int imageId04 = getResources().getIdentifier(identifier04, "drawable", this.getPackageName());
-            aCard04.setImageResource(imageId04);
+            String identifier15 = game.getPlayers().get(1).getBJHand().get(3).toString().toLowerCase();
+            int imageId15 = getResources().getIdentifier(identifier15, "drawable", this.getPackageName());
+            aCard04.setImageResource(imageId15);
             aCard04.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 5) {
-            String identifier05 = game.getPlayers().get(1).getBJHand().get(4).toString().toLowerCase();
-            int imageId05 = getResources().getIdentifier(identifier05, "drawable", this.getPackageName());
-            aCard05.setImageResource(imageId05);
+            String identifier16 = game.getPlayers().get(1).getBJHand().get(4).toString().toLowerCase();
+            int imageId16 = getResources().getIdentifier(identifier16, "drawable", this.getPackageName());
+            aCard05.setImageResource(imageId16);
             aCard05.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 6) {
-            String identifier06 = game.getPlayers().get(1).getBJHand().get(5).toString().toLowerCase();
-            int imageId06 = getResources().getIdentifier(identifier06, "drawable", this.getPackageName());
-            aCard06.setImageResource(imageId06);
+            String identifier17 = game.getPlayers().get(1).getBJHand().get(5).toString().toLowerCase();
+            int imageId17 = getResources().getIdentifier(identifier17, "drawable", this.getPackageName());
+            aCard06.setImageResource(imageId17);
             aCard06.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 7) {
-            String identifier07 = game.getPlayers().get(1).getBJHand().get(6).toString().toLowerCase();
-            int imageId07 = getResources().getIdentifier(identifier07, "drawable", this.getPackageName());
-            aCard07.setImageResource(imageId07);
+            String identifier18 = game.getPlayers().get(1).getBJHand().get(6).toString().toLowerCase();
+            int imageId18 = getResources().getIdentifier(identifier18, "drawable", this.getPackageName());
+            aCard07.setImageResource(imageId18);
             aCard07.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 8) {
-            String identifier08 = game.getPlayers().get(1).getBJHand().get(7).toString().toLowerCase();
-            int imageId08 = getResources().getIdentifier(identifier08, "drawable", this.getPackageName());
-            aCard08.setImageResource(imageId08);
+            String identifier19 = game.getPlayers().get(1).getBJHand().get(7).toString().toLowerCase();
+            int imageId19 = getResources().getIdentifier(identifier19, "drawable", this.getPackageName());
+            aCard08.setImageResource(imageId19);
             aCard08.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 9) {
-            String identifier09 = game.getPlayers().get(1).getBJHand().get(8).toString().toLowerCase();
-            int imageId09 = getResources().getIdentifier(identifier09, "drawable", this.getPackageName());
-            aCard09.setImageResource(imageId09);
+            String identifier20 = game.getPlayers().get(1).getBJHand().get(8).toString().toLowerCase();
+            int imageId20 = getResources().getIdentifier(identifier20, "drawable", this.getPackageName());
+            aCard09.setImageResource(imageId20);
             aCard09.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 10) {
-            String identifier10 = game.getPlayers().get(1).getBJHand().get(9).toString().toLowerCase();
-            int imageId10 = getResources().getIdentifier(identifier10, "drawable", this.getPackageName());
-            aCard10.setImageResource(imageId10);
+            String identifier21 = game.getPlayers().get(1).getBJHand().get(9).toString().toLowerCase();
+            int imageId21 = getResources().getIdentifier(identifier21, "drawable", this.getPackageName());
+            aCard10.setImageResource(imageId21);
             aCard10.setVisibility(View.VISIBLE);
         }
         if (game.getPlayers().get(1).getBJHand().size() >= 11) {
-            String identifier10 = game.getPlayers().get(1).getBJHand().get(10).toString().toLowerCase();
-            int imageId10 = getResources().getIdentifier(identifier10, "drawable", this.getPackageName());
-            aCard11.setImageResource(imageId10);
+            String identifier22 = game.getPlayers().get(1).getBJHand().get(10).toString().toLowerCase();
+            int imageId22 = getResources().getIdentifier(identifier22, "drawable", this.getPackageName());
+            aCard11.setImageResource(imageId22);
             aCard11.setVisibility(View.VISIBLE);
         }
         /////// ANDROIDS CARD CHECK /////////////////////////////////////////
 
         //////// DEVICE STATISTICS ///////////////////////
         String playReport = game.statsEvaluation() + " ";
-        String returnedText = BJSavedStatistics.getStoredText(this);
+        String returnedText = BlackJackSavedStatistics.getStoredText(this);
         String stringToSave = returnedText + " " + playReport;
         Context context = button.getContext();
-        BJSavedStatistics.setStoredText(context, stringToSave);
+        BlackJackSavedStatistics.setStoredText(context, stringToSave);
         /////// DEVICE STATISTICS ///////////////////////
 
         androidTurn.setVisibility(View.VISIBLE);
@@ -332,25 +335,28 @@ public class BJPlayActivity extends AppCompatActivity implements View.OnClickLis
 
     public void onPlayAgainButtonClicked(View button) {
         Intent bjIntent;
-        bjIntent = new Intent(BJPlayActivity.this, BJPlayActivity.class);
+        ////////////// ADDED TO RESET THE MEMORY /////////////////////////
+        finish();
+        ////////////// ADDED TO RESET THE MEMORY /////////////////////////
+        bjIntent = new Intent(BlackJackPlayActivity.this, BlackJackPlayActivity.class);
         startActivity(bjIntent);
         Log.d(getClass().toString(), "Play again clicked");
     }
 
     public void onGoBackButtonClicked(View button) {
         Intent bjIntent;
-        bjIntent = new Intent(BJPlayActivity.this, BJActivity.class);
+        bjIntent = new Intent(BlackJackPlayActivity.this, BlackJackActivity.class);
         startActivity(bjIntent);
         Log.d(getClass().toString(), "Go back clicked");
     }
 
     /// VIBRATE
-    @Override
-    public void onClick(View v) {
-        switch(v.getId()) {
-            case R.id.hit_button:
-                vibrator.vibrate(100);
-                onHitButtonClicked(hitButton);
-        }
-    }
+//    @Override
+//    public void onClick(View v) {
+//        switch(v.getId()) {
+//            case R.id.hit_button:
+//                vibrator.vibrate(100);
+//                onHitButtonClicked(hitButton);
+//        }
+//    }
 }

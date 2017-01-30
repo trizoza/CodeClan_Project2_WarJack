@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * Created by user on 23/01/2017.
  */
 
-public class WActivity extends AppCompatActivity {
+public class WarActivity extends AppCompatActivity {
 
     Button playButton;
     TextView statisticsView;
@@ -33,7 +33,7 @@ public class WActivity extends AppCompatActivity {
         statisticsView = (TextView) findViewById(R.id.war_stats_view);
         statisticsView.setVisibility(View.INVISIBLE);
 
-        String returnedWinners = WSavedWinners.getStoredText(this);
+        String returnedWinners = WarSavedWinners.getStoredText(this);
         if (returnedWinners != null && !returnedWinners.isEmpty()) {
             //// search for player wins
             int players = 0;
@@ -49,8 +49,8 @@ public class WActivity extends AppCompatActivity {
             while (n.find()) {
                 androids++;
             }
-            String longestTurn = WSavedLongestTurn.getStoredText(this);
-            String shortestTurn = WSavedShortestTurn.getStoredText(this);
+            String longestTurn = WarSavedLongestTurn.getStoredText(this);
+            String shortestTurn = WarSavedShortestTurn.getStoredText(this);
             String stats = "     GAME STATISTICS\n" +
                     "\nPlayer: " + players +
                     "\nAndroid: " + androids +
@@ -64,7 +64,7 @@ public class WActivity extends AppCompatActivity {
     public void onPlayWarButtonClicked(View button) {
         Log.d(getClass().toString(), "Play clicked");
         Intent wIntent;
-        wIntent = new Intent(WActivity.this, WPlayActivity.class);
+        wIntent = new Intent(WarActivity.this, WarPlayActivity.class);
         startActivity(wIntent);
     }
 

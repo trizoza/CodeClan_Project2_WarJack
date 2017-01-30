@@ -7,9 +7,9 @@ import android.preference.PreferenceManager;
  * Created by user on 24/01/2017.
  */
 
-public class WSavedShortestTurn {
+public class WarSavedWinners {
 
-    private static final String PREF_SAVEDTEXT = "savedShortestTurn";
+    private static final String PREF_SAVEDTEXT = "savedWinners";
 
     public static void setStoredText(Context context, String text) {
 
@@ -24,4 +24,5 @@ public class WSavedShortestTurn {
                 .getString(PREF_SAVEDTEXT, null);
 
     }
+
 }

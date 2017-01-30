@@ -21,29 +21,29 @@
         </activity>
 
         <activity
-            android:name=".WActivity"
+            android:name=".WarActivity"
             android:label="@string/w_activity_title"
             android:parentActivityName=".MainActivity">
 
         </activity>
 
         <activity
-            android:name=".WPlayActivity"
+            android:name=".WarPlayActivity"
             android:label="@string/w_activity_title"
-            android:parentActivityName=".WActivity">
+            android:parentActivityName=".WarActivity">
 
         </activity>
 
         <activity
-            android:name=".BJActivity"
+            android:name=".BlackJackActivity"
             android:label="@string/bj_activity_title"
             android:parentActivityName=".MainActivity">
         </activity>
 
         <activity
-            android:name=".BJPlayActivity"
+            android:name=".BlackJackPlayActivity"
             android:label="@string/bj_activity_title"
-            android:parentActivityName=".BJActivity">
+            android:parentActivityName=".BlackJackActivity">
         </activity>
 
     </application>

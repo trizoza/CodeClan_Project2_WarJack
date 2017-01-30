@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  * Created by user on 23/01/2017.
  */
 
-public class BJActivity extends AppCompatActivity{
+public class BlackJackActivity extends AppCompatActivity{
 
     Button playButton;
     TextView savedStats;
@@ -34,7 +34,7 @@ public class BJActivity extends AppCompatActivity{
         savedStats = (TextView)findViewById(R.id.saved_stats);
         savedStats.setVisibility(View.INVISIBLE);
         resetStatsButton.setVisibility(View.INVISIBLE);
-        String returnedText = BJSavedStatistics.getStoredText(this);
+        String returnedText = BlackJackSavedStatistics.getStoredText(this);
 
         if (returnedText != null && !returnedText.isEmpty()) {
             //// search for player wins
@@ -70,7 +70,7 @@ public class BJActivity extends AppCompatActivity{
     public void onPlayBlackJackButtonClicked(View button) {
         Log.d(getClass().toString(), "Play clicked");
         Intent wIntent;
-        wIntent = new Intent(BJActivity.this, BJPlayActivity.class);
+        wIntent = new Intent(BlackJackActivity.this, BlackJackPlayActivity.class);
         startActivity(wIntent);
     }
 
@@ -78,7 +78,7 @@ public class BJActivity extends AppCompatActivity{
         Log.d(getClass().toString(), "Reset statistics clicked");
         String stringToSave = " ";
         Context context = button.getContext();
-        BJSavedStatistics.setStoredText(context, stringToSave);
+        BlackJackSavedStatistics.setStoredText(context, stringToSave);
         String stats = "   GAME STATISTICS\n\n         Player: 0\n         Android: 0\n         Tie: 0";
         savedStats.setText(stats);
     }
